@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User } from "lucide-react";
 import { useState } from "react";
 import InteractiveDemo from "@/components/InteractiveDemo";
+import ShortsGallery from "@/components/ShortsGallery";
+import SidepanelModal from "@/components/SidepanelModal";
+import { ShortData } from "@/data/shortsData";
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [selectedShort, setSelectedShort] = useState<ShortData | null>(null);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -229,6 +233,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 4.5 18-Shorts Showcase Gallery */}
+      <ShortsGallery onSelectShort={(short) => setSelectedShort(short)} />
+
+      {/* Sidepanel Modal Drawer */}
+      <SidepanelModal short={selectedShort} onClose={() => setSelectedShort(null)} />
 
       {/* 5. Ultimate Transformation */}
       <section className="py-24 px-6 relative max-w-4xl mx-auto text-center">
