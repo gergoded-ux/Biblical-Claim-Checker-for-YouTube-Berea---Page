@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
 2:I[47257,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1z6x88ihszho0.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/158myu8e_yme3.js"],"ClientPageRoot"]
-3:I[52683,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1z6x88ihszho0.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/158myu8e_yme3.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1h5k950b8pdml.js"],"default"]
+3:I[52683,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1z6x88ihszho0.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/158myu8e_yme3.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/16z9y_sfxto1a.js"],"default"]
 6:I[97367,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1z6x88ihszho0.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/158myu8e_yme3.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1h5k950b8pdml.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"WxSN1MTpWI5E47vaBLDRK"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/16z9y_sfxto1a.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"S89iQz0y92q8Wnrxi-pqX"}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
