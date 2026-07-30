@@ -284,19 +284,19 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Free Tier */}
           <div className="paper-card p-10 flex flex-col">
-            <h3 className="text-2xl font-bold mb-2">Local Engine</h3>
-            <p className="text-muted text-sm mb-6">For developers and privacy purists.</p>
-            <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted">/forever</span></div>
+            <h3 className="text-2xl font-bold mb-2">Berea Basic</h3>
+            <p className="text-muted text-sm mb-6">Start discerning truth immediately.</p>
+            <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted"></span></div>
             
             <button className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8">
-              Download from GitHub
+              Install Extension
             </button>
             
             <ul className="space-y-4 text-sm text-ink flex-grow">
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Bring your own API Keys (OpenRouter/Anthropic)</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Weekly AI processing credits</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> 100% Local BM25 Scripture DB</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Unlimited transcript extraction</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Exportable Markdown Reports</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Transcript extraction</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Google Sign-in sync</li>
             </ul>
           </div>
 
@@ -305,23 +305,23 @@ export default function Home() {
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
               Recommended
             </div>
-            <h3 className="text-2xl font-bold mb-2">Berea Cloud</h3>
-            <p className="text-muted text-sm mb-6">Fully managed for everyday students.</p>
-            <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted">/beta</span></div>
+            <h3 className="text-2xl font-bold mb-2">Berea Pro</h3>
+            <p className="text-muted text-sm mb-6">For power users and theologians.</p>
+            <div className="text-4xl font-extrabold mb-8">Freemium<span className="text-lg font-normal text-muted">/upgrade</span></div>
             
             <button className="w-full py-4 rounded-lg font-bold bg-primary text-white hover:bg-primary-hover transition-colors mb-8">
-              Install Chrome Extension
+              Get Unlimited Credits
             </button>
             
             <div className="bg-accent-soft p-3 rounded mb-6 text-xs font-bold text-center border border-line">
-              Everything in Local Engine, plus:
+              Everything in Basic, plus:
             </div>
 
             <ul className="space-y-4 text-sm text-ink flex-grow">
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>No API keys required</strong></li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Weekly AI processing credits included</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Google Sign-in sync</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Managed edge proxy for fastest response</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>Unlimited AI verdicts</strong></li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Exportable Markdown Reports</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Advanced Theology Lenses</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Priority Support</li>
             </ul>
           </div>
         </div>
@@ -334,7 +334,7 @@ export default function Home() {
         </div>
         <div className="space-y-4">
           {[
-            { q: "Is Berea really free to use?", a: "Yes. The Local Engine is always free if you use your own API keys. The Berea Cloud version is currently in free Beta, providing weekly credits to all users who sign in with Google." },
+            { q: "Is Berea really free to use?", a: "Berea is a freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google to get started. You can upgrade to Berea Pro for unlimited usage." },
             { q: "Does Berea enforce a specific denomination's theology?", a: "No. Berea uses a neutral prompt architecture designed to objectively compare the speaker's claim against the text of the retrieved Scripture. It evaluates textual alignment, not denominational tradition." },
             { q: "Which Bible translations are supported?", a: "Currently, the local retrieval engine supports the World English Bible (WEB) and King James Version (KJV). The semantic embeddings are trained on these datasets for maximum accuracy." },
             { q: "Is my data private?", a: "Yes. Berea's heavy Scripture retrieval engine runs 100% locally in your browser. Only the extracted claims are sent to our secure Vercel edge proxy for AI evaluation." }
