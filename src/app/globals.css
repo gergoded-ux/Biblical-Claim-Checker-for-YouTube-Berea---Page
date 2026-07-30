@@ -1,19 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f111a;
-  --color-foreground: #eef2ff;
-  --color-primary: #6366f1; /* Berean Indigo */
-  --color-primary-hover: #4f46e5;
-  --color-card: rgba(30, 33, 48, 0.7);
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-background: #faf8f3;
+  --color-foreground: #1a1a1a;
+  
+  --color-surface: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-line: #e7e3da;
+  
+  --color-primary: #6b3f1f; 
+  --color-primary-hover: #5a3318;
+  --color-accent-soft: #f4ead8;
+  
+  --color-aligned: #2d6a4f;
+  --color-partial: #ad8b00;
+  --color-tension: #c2410c;
+  --color-misquote: #b91c1c;
+  --color-unsupported: #8b5cf6;
+
   --font-sans: var(--font-inter);
 }
 
 @layer base {
   :root {
-    --background: #0f111a;
-    --foreground: #eef2ff;
+    --background: #faf8f3;
+    --foreground: #1a1a1a;
   }
   
   body {
@@ -22,23 +34,26 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
+    /* Parchment texture overlay - subtle noise */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
   }
 }
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(to right, #818cf8, #c084fc);
+    /* More of an ink highlight gradient now */
+    background: linear-gradient(to right, #6b3f1f, #c2410c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
   
-  .glass-card {
-    background: var(--color-card);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
+  .paper-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
 }
 
