@@ -28,7 +28,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full paper-card border-x-0 border-t-0 rounded-none z-50 shadow-sm bg-surface/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-ink">
-            <BookOpen className="text-primary" />
+            <img src="/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png" alt="Berea Logo" className="w-7 h-7 rounded shadow-sm" />
             <span>Berea<span className="text-primary font-normal">™</span></span>
           </div>
           <div className="flex items-center gap-6">
