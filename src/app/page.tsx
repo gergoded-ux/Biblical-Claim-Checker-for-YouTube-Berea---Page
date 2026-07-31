@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User } from "lucide-react";
 import { useState } from "react";
-import InteractiveDemo from "@/components/InteractiveDemo";
 import { BereaPipelineBeam } from "@/components/BereaPipelineBeam";
 import ShortsGallery from "@/components/ShortsGallery";
 import CardFanCarousel from "@/components/ui/card-fan-carousel";
@@ -77,38 +76,13 @@ export default function Home() {
             </button>
           </motion.div>
         </motion.div>
-        
-        {/* INTERACTIVE DEMO */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <InteractiveDemo 
-            videoId="dQw4w9WgXcQ" 
-            claims={[
-              {
-                id: "c1",
-                time: "1:15",
-                speakerText: "The Bible says God just wants you to be wealthy and happy.",
-                claim: "God's primary desire is our material wealth and happiness.",
-                verdict: "misquote",
-                verses: ["Matthew 6:19-21", "Luke 9:23"],
-                explanation: "Jesus taught to lay up treasures in heaven, not on earth, and that following Him involves taking up a cross."
-              },
-              {
-                id: "c2",
-                time: "3:40",
-                speakerText: "We must study the word daily to know if these things are true.",
-                claim: "Believers should examine scriptures daily to verify teachings.",
-                verdict: "aligned",
-                verses: ["Acts 17:11"],
-                explanation: "The Bereans were commended for receiving the word with eagerness and examining the Scriptures daily."
-              }
-            ]}
-          />
-        </motion.div>
       </section>
+
+      {/* Hero Carousel — 18 YouTube Shorts Fan Arc */}
+      <CardFanCarousel onSelectShort={(short) => setSelectedShort(short)} />
+
+      {/* Sidepanel Modal Drawer */}
+      <SidepanelModal short={selectedShort} onClose={() => setSelectedShort(null)} />
 
       {/* 2. Dual Marquee Banner — Scripture Verses (→) & Translations (←) */}
       <section className="py-0 border-y border-line bg-ink overflow-hidden">
@@ -320,12 +294,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 4.5 18-Shorts Card Fan Carousel */}
-      <CardFanCarousel onSelectShort={(short) => setSelectedShort(short)} />
-
-      {/* Sidepanel Modal Drawer */}
-      <SidepanelModal short={selectedShort} onClose={() => setSelectedShort(null)} />
 
       {/* 5. Ultimate Transformation */}
       <section className="py-24 px-6 relative max-w-4xl mx-auto text-center">
