@@ -58,14 +58,14 @@ export default function CardFanCarousel({
         return;
       }
 
-      // Fan calculations
-      const spreadMultiplier = isHovered ? 1.4 : 1.0;
-      const rotationAngle = offset * 9 * spreadMultiplier;
-      const xPos = offset * 70 * spreadMultiplier;
-      const yPos = Math.pow(offset, 2) * 12 - (offset === 0 ? 20 : 0);
+      // Fan calculations (Flatter, larger radius arc)
+      const spreadMultiplier = isHovered ? 1.3 : 1.0;
+      const rotationAngle = offset * 3.5 * spreadMultiplier; // gentle rotation
+      const xPos = offset * 110 * spreadMultiplier; // wider horizontal spacing
+      const yPos = Math.pow(offset, 2) * 4 - (offset === 0 ? 15 : 0); // subtle vertical curve
       const zIndex = 100 - absOffset * 10;
-      const scale = 1 - absOffset * 0.08;
-      const opacity = 1 - absOffset * 0.18;
+      const scale = 1 - absOffset * 0.05;
+      const opacity = 1 - absOffset * 0.15;
 
       gsap.to(cardEl, {
         x: xPos,
