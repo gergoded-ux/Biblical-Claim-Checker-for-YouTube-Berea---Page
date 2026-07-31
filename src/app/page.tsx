@@ -219,44 +219,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3.5 How It Works — Animated Pipeline Beam */}
-      <section className="py-24 px-6 relative max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Under the Hood</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Works</h2>
-          <p className="text-muted max-w-2xl mx-auto">From the moment you press "Extract" on any YouTube video, Berea runs a 6-step pipeline — entirely in your browser side panel.</p>
-        </div>
-        <BereaPipelineBeam />
-
-        {/* Step descriptions below the beam */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
-          <div className="text-center">
-            <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">1</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Open any YouTube video</span> — sermons, podcasts, shorts, or lectures.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-8 h-8 rounded-full bg-accent-soft text-primary flex items-center justify-center mx-auto mb-2 text-sm font-bold">2</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Transcript is auto-extracted</span> — pulled from YouTube captions instantly.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">3</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">AI extracts biblical claims</span> — identifies testable theological statements.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-8 h-8 rounded-full bg-accent-soft text-primary flex items-center justify-center mx-auto mb-2 text-sm font-bold">4</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Offline BM25 Scripture search</span> — retrieves the most relevant Bible passages locally.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">5</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">AI compares claim vs. Scripture</span> — generates a structured theological verdict.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">6</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Full claim report</span> — Aligned, Tension, or Misquote with verse references.</p>
-          </div>
-        </div>
-      </section>
-
       {/* 4. Pain Points / Solutions */}
       <section className="py-24 px-6 bg-surface border-y border-line">
         <div className="max-w-6xl mx-auto">
@@ -291,6 +253,44 @@ export default function Home() {
               <h5 className="font-bold text-xl mb-3">Exportable Study Reports</h5>
               <p className="text-muted leading-relaxed">Focus on the teaching. Berea automatically structures the claims, verdicts, and verses into exportable markdown notes for Obsidian or Notion.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5 How It Works — Animated Pipeline Beam */}
+      <section className="py-24 px-6 relative max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Under the Hood</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Works</h2>
+          <p className="text-muted max-w-2xl mx-auto">From the moment you press "Extract" on any YouTube video, Berea runs a 6-step pipeline — entirely in your browser side panel.</p>
+        </div>
+        <BereaPipelineBeam />
+
+        {/* Step descriptions below the beam */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+          <div className="text-center">
+            <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">1</div>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Open any YouTube video</span> — sermons, podcasts, shorts, or lectures.</p>
+          </div>
+          <div className="text-center">
+            <div className="w-8 h-8 rounded-full bg-accent-soft text-primary flex items-center justify-center mx-auto mb-2 text-sm font-bold">2</div>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Transcript is auto-extracted</span> — pulled from YouTube captions instantly.</p>
+          </div>
+          <div className="text-center">
+            <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">3</div>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">AI extracts biblical claims</span> — identifies testable theological statements.</p>
+          </div>
+          <div className="text-center">
+            <div className="w-8 h-8 rounded-full bg-accent-soft text-primary flex items-center justify-center mx-auto mb-2 text-sm font-bold">4</div>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Offline BM25 Scripture search</span> — retrieves the most relevant Bible passages locally.</p>
+          </div>
+          <div className="text-center">
+            <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">5</div>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">AI compares claim vs. Scripture</span> — generates a structured theological verdict.</p>
+          </div>
+          <div className="text-center">
+            <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">6</div>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Full claim report</span> — Aligned, Tension, or Misquote with verse references.</p>
           </div>
         </div>
       </section>
