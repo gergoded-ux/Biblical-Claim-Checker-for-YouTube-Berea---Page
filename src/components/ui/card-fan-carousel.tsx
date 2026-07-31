@@ -58,14 +58,14 @@ export default function CardFanCarousel({
         return;
       }
 
-      // Fan calculations (Flatter, larger radius arc)
-      const spreadMultiplier = isHovered ? 1.3 : 1.0;
-      const rotationAngle = offset * 3.5 * spreadMultiplier; // gentle rotation
-      const xPos = offset * 110 * spreadMultiplier; // wider horizontal spacing
-      const yPos = Math.pow(offset, 2) * 4 - (offset === 0 ? 15 : 0); // subtle vertical curve
+      // Fan calculations (Flatter, 35% larger radius arc)
+      const spreadMultiplier = isHovered ? 1.25 : 1.0;
+      const rotationAngle = offset * 2.2 * spreadMultiplier; // minimal rotation
+      const xPos = offset * 145 * spreadMultiplier; // 35% wider horizontal spacing
+      const yPos = Math.pow(offset, 2) * 2.5 - (offset === 0 ? 10 : 0); // very flat vertical curve
       const zIndex = 100 - absOffset * 10;
-      const scale = 1 - absOffset * 0.05;
-      const opacity = 1 - absOffset * 0.15;
+      const scale = 1 - absOffset * 0.04;
+      const opacity = 1 - absOffset * 0.12;
 
       gsap.to(cardEl, {
         x: xPos,
@@ -112,25 +112,21 @@ export default function CardFanCarousel({
                 cardsRef.current[idx] = el;
               }}
               onClick={() => {
-                if (isCenter) {
-                  onSelectShort(short);
-                } else {
-                  setActiveIndex(idx);
-                }
+                onSelectShort(short);
               }}
-              className={`absolute w-[240px] md:w-[280px] aspect-[9/15] paper-card rounded-2xl overflow-hidden shadow-2xl border border-line/80 cursor-pointer bg-black transition-shadow duration-300 ${
-                isCenter ? "ring-2 ring-primary/60 shadow-primary/20" : ""
+              className={`absolute w-[240px] md:w-[280px] aspect-[9/15] paper-card rounded-2xl overflow-hidden shadow-2xl border border-line/80 cursor-pointer bg-black transition-all duration-300 group ${
+                isCenter ? "ring-2 ring-primary/60 shadow-primary/20 scale-[1.02]" : ""
               }`}
             >
               {/* Thumbnail Image */}
               <img
                 src={`https://img.youtube.com/vi/${short.id}/hqdefault.jpg`}
                 alt={short.title}
-                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
 
               {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
               {/* Top Category Badge */}
               <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-10">
@@ -142,18 +138,11 @@ export default function CardFanCarousel({
                 </span>
               </div>
 
-              {/* Center Analyze Action Button */}
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSelectShort(short);
-                  }}
-                  className="bg-primary hover:bg-primary-hover text-white font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-xl hover:scale-105 transition-all border border-white/20"
-                >
-                  <Sparkles size={14} />
-                  <span>Analyze with Berea</span>
-                </button>
+              {/* Subtle Hover Indicator */}
+              <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-12 h-12 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-lg backdrop-blur-sm transform group-hover:scale-110 transition-transform">
+                  <Play size={20} className="ml-0.5 fill-white" />
+                </div>
               </div>
 
               {/* Bottom Details */}
