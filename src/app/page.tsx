@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User } from "lucide-react";
 import { useState } from "react";
 import { BereaPipelineBeam } from "@/components/BereaPipelineBeam";
@@ -34,16 +35,14 @@ export default function Home() {
       <nav className="fixed top-0 w-full paper-card border-x-0 border-t-0 rounded-none z-50 shadow-sm bg-surface/90 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-ink">
-            <img src="/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png" alt="Berea Logo" className="w-7 h-7 rounded shadow-sm" />
+            <Image src="/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png" alt="Berea Logo" width={28} height={28} className="rounded shadow-sm" />
             <span>Berea<span className="text-primary font-normal">™</span></span>
           </div>
           <div className="flex items-center gap-6">
             <a href="#toolkit" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Toolkit</a>
             <a href="#pricing" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Pricing</a>
-            <a href="https://github.com/gergoded-ux/BEREA" target="_blank" rel="noreferrer" className="text-sm font-semibold hover:text-primary text-muted transition-colors">
-              GitHub
-            </a>
-            <a href="#install" className="text-sm font-bold bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-hover transition-colors">
+            <a href="#faq" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">FAQ</a>
+            <a href="#install" className="text-sm font-bold bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-hover transition-colors shadow-sm hover:shadow-md hover:-translate-y-0.5">
               Add to Chrome
             </a>
           </div>
@@ -61,17 +60,17 @@ export default function Home() {
           className="max-w-4xl mx-auto space-y-6"
         >
           <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-extrabold tracking-tight text-balance text-ink leading-tight">
-            Study YouTube Theology <br className="hidden md:block" />
-            <span className="text-gradient">With Scripture</span>
+            The Biblical Claim Checker <br className="hidden md:block" />
+            <span className="text-gradient">for YouTube</span>
           </motion.h1>
           
           <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted text-balance leading-relaxed max-w-2xl mx-auto pt-2">
-            Berea’s AI-powered side panel helps believers instantly verify theological claims in any YouTube video using local, offline Scripture retrieval.
+            Study YouTube theology with Scripture. Berea’s AI-powered side panel helps believers instantly verify theological claims in any video using local, offline Scripture retrieval.
           </motion.p>
           
           <motion.div variants={fadeIn} className="flex justify-center pt-8">
             <button className="bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-full font-bold text-lg transition-all flex items-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome" className="w-6 h-6 brightness-0 invert" />
+              <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome" width={24} height={24} className="brightness-0 invert" />
               Add to Chrome - Start Verifying Today <ArrowRight size={20} />
             </button>
           </motion.div>
@@ -148,7 +147,7 @@ export default function Home() {
       <section id="toolkit" className="py-24 px-6 relative max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Your Complete Toolkit</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Everything You Need to Examine Scripture</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Everything You Need in a YouTube Bible Study Tool</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
@@ -223,7 +222,7 @@ export default function Home() {
       <section className="py-24 px-6 bg-surface border-y border-line">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">How Berea Helps You Study</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">A Chrome Extension for Scripture Verification</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -261,7 +260,7 @@ export default function Home() {
       <section className="py-24 px-6 relative max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Under the Hood</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Works</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Checks Sermon Transcripts Offline</h2>
           <p className="text-muted max-w-2xl mx-auto">From the moment you press "Extract" on any YouTube video, Berea runs a 6-step pipeline — entirely in your browser side panel.</p>
         </div>
         <BereaPipelineBeam />
@@ -311,7 +310,7 @@ export default function Home() {
       <section className="py-24 px-6 bg-surface border-y border-line">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">Built for Every YouTube Listener</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">Trusted by Everyday Believers</h2>
             <p className="text-muted max-w-xl mx-auto">See how everyday Christians are using Berea to verify online teaching and study Scripture with confidence.</p>
           </div>
 
@@ -443,16 +442,17 @@ export default function Home() {
       </section>
 
       {/* 8. FAQ */}
-      <section className="py-24 px-6 max-w-3xl mx-auto border-t border-line">
+      <section id="faq" className="py-24 px-6 max-w-3xl mx-auto border-t border-line">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4 text-ink">Frequently Asked Questions</h2>
         </div>
         <div className="space-y-4">
           {[
-            { q: "Is Berea really free to use?", a: "Berea is a freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google to get started. You can upgrade to Berea Pro for unlimited usage." },
-            { q: "Does Berea enforce a specific denomination's theology?", a: "No. Berea uses a neutral prompt architecture designed to objectively compare the speaker's claim against the text of the retrieved Scripture. It evaluates textual alignment, not denominational tradition." },
-            { q: "Which Bible translations are supported?", a: "Currently, the local retrieval engine supports the World English Bible (WEB) and King James Version (KJV). The semantic embeddings are trained on these datasets for maximum accuracy." },
-            { q: "Is my data private?", a: "Yes. Berea's heavy Scripture retrieval engine runs 100% locally in your browser. Only the extracted claims are sent to our secure Vercel edge proxy for AI evaluation." }
+            { q: "Does Berea track my YouTube history or personal data?", a: "No. Berea is 100% private. It only activates when you open the side panel and explicitly click 'Extract'. It only reads the transcript of the video you are currently watching and does not track your general browsing history or personal data." },
+            { q: "What Bible translation does Berea use for verification?", a: "Currently, the local retrieval engine defaults to the World English Bible (WEB) and King James Version (KJV). The AI strictly compares claims against the retrieved verses, minimizing denominational bias by sticking to the text itself." },
+            { q: "Is Berea really free to use?", a: "Berea is a freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for unlimited usage." },
+            { q: "Does it work on every YouTube video?", a: "Berea works on any YouTube video that has a transcript (captions). Whether the video uses auto-generated or manual captions—which includes almost all sermons and podcasts—Berea can analyze it for theological claims." },
+            { q: "How does the AI prevent hallucinations or making things up?", a: "We use a hybrid approach. First, Berea runs a traditional search algorithm (BM25) on a local Bible database to find relevant verses. The AI is then strictly constrained to compare the speaker's claim only against those specific verses, significantly reducing the chance of AI hallucination." }
           ].map((faq, i) => (
             <div key={i} className="paper-card overflow-hidden">
               <button 

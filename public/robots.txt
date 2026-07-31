@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gergoded-ux.github.io/Biblical-Claim-Checker-for-YouTube-Berea---Page/sitemap.xml

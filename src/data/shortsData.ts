@@ -27,7 +27,7 @@ export interface ShortData {
   claims: DemoClaim[];
 }
 
-export const SHORTS_DATA: ShortData[] = [
+const RAW_SHORTS_DATA: ShortData[] = [
   {
     "id": "1M-2k3UdTyA",
     "author": "Bible Alive",
@@ -1575,3 +1575,37 @@ export const SHORTS_DATA: ShortData[] = [
     ]
   }
 ];
+
+function interleaveByAuthor(data: ShortData[]): ShortData[] {
+  const byAuthor: Record<string, ShortData[]> = {};
+  for (const item of data) {
+    const list = byAuthor[item.author] || [];
+    list.push(item);
+    byAuthor[item.author] = list;
+  }
+  const authors = Object.keys(byAuthor).sort((a, b) => byAuthor[b].length - byAuthor[a].length);
+  const result: ShortData[] = [];
+  let added = true;
+  while (added) {
+    added = false;
+    for (const author of authors) {
+      if (byAuthor[author].length > 0) {
+        if (result.length > 0 && result[result.length - 1].author === author) {
+          const altAuthor = authors.find((a) => a !== author && byAuthor[a].length > 0);
+          if (altAuthor) {
+            result.push(byAuthor[altAuthor].shift()!);
+            added = true;
+          }
+        }
+        if (byAuthor[author].length > 0) {
+          result.push(byAuthor[author].shift()!);
+          added = true;
+        }
+      }
+    }
+  }
+  return result;
+}
+
+export const SHORTS_DATA: ShortData[] = interleaveByAuthor(RAW_SHORTS_DATA);
+

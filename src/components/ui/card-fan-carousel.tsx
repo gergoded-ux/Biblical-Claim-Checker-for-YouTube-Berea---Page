@@ -51,8 +51,9 @@ export default function CardFanCarousel({
           opacity: 0,
           scale: 0.6,
           y: 50,
-          duration: 0.4,
+          duration: 0.2,
           ease: "power2.out",
+          overwrite: "auto",
           pointerEvents: "none",
         });
         return;
@@ -74,8 +75,9 @@ export default function CardFanCarousel({
         scale: scale,
         opacity: opacity,
         zIndex: zIndex,
-        duration: 0.5,
-        ease: "back.out(1.2)",
+        duration: 0.25,
+        ease: "power2.out",
+        overwrite: "auto",
         pointerEvents: offset === 0 || isHovered ? "auto" : "none",
       });
     });
@@ -118,11 +120,19 @@ export default function CardFanCarousel({
                 isCenter ? "ring-2 ring-primary/60 shadow-primary/30 scale-[1.02]" : ""
               }`}
             >
-              {/* Thumbnail Image (Scaled 1.35x to crop out YouTube letterboxing/black edges) */}
+              {/* Thumbnail Image (HD MaxRes/SD with fallback, subtle crop) */}
               <img
-                src={`https://img.youtube.com/vi/${short.id}/hqdefault.jpg`}
+                src={`https://i.ytimg.com/vi/${short.id}/maxresdefault.jpg`}
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src.includes("maxresdefault")) {
+                    target.src = `https://i.ytimg.com/vi/${short.id}/sddefault.jpg`;
+                  } else if (target.src.includes("sddefault")) {
+                    target.src = `https://i.ytimg.com/vi/${short.id}/hqdefault.jpg`;
+                  }
+                }}
                 alt={short.title}
-                className="w-full h-full object-cover scale-[1.35] group-hover:scale-[1.42] transition-transform duration-500 opacity-100"
+                className="w-full h-full object-cover scale-[1.08] group-hover:scale-[1.15] transition-transform duration-300 opacity-100"
               />
 
               {/* Dark Gradient Overlay */}

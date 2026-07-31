@@ -6,6 +6,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gergoded-ux.github.io"),
   title: "Biblical Claim Checker for YouTube — Berea™",
   description: "Examine YouTube teachings against Scripture in a side panel. Berea is a Chrome extension that scrapes transcripts, extracts claims, and retrieves relevant Scripture.",
   keywords: ["Berea", "Bible", "Scripture", "Scripture Verification", "YouTube", "Chrome Extension", "Acts 17:11"],
@@ -14,7 +15,21 @@ export const metadata: Metadata = {
     description: "Examine YouTube teachings against Scripture in a side panel. Berea is a Chrome extension that scrapes transcripts, extracts claims, and retrieves relevant Scripture.",
     type: "website",
     url: "https://gergoded-ux.github.io/Biblical-Claim-Checker-for-YouTube-Berea---Page/",
+    images: [
+      {
+        url: "https://gergoded-ux.github.io/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Berea Logo",
+      }
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Biblical Claim Checker for YouTube — Berea™",
+    description: "Examine YouTube teachings against Scripture in a side panel. Berea is a Chrome extension that scrapes transcripts, extracts claims, and retrieves relevant Scripture.",
+    images: ["https://gergoded-ux.github.io/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png"],
+  }
 };
 
 export default function RootLayout({
@@ -27,19 +42,67 @@ export default function RootLayout({
       <head>
         <Script id="schema-org" type="application/ld+json">
           {`
-            {
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Biblical Claim Checker for YouTube — Berea™",
-              "operatingSystem": "Chrome",
-              "applicationCategory": "BrowserApplication",
-              "description": "Examine YouTube teachings against Scripture in a side panel.",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
+            [
+              {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Biblical Claim Checker for YouTube — Berea™",
+                "operatingSystem": "Chrome",
+                "applicationCategory": "BrowserApplication",
+                "description": "Examine YouTube teachings against Scripture in a side panel.",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Does Berea track my YouTube history or personal data?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "No. Berea is 100% private. It only activates when you open the side panel and explicitly click 'Extract'. It only reads the transcript of the video you are currently watching and does not track your general browsing history or personal data."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What Bible translation does Berea use for verification?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Currently, the local retrieval engine defaults to the World English Bible (WEB) and King James Version (KJV). The AI strictly compares claims against the retrieved verses, minimizing denominational bias by sticking to the text itself."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Is Berea really free to use?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Berea is a freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for unlimited usage."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Does it work on every YouTube video?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Berea works on any YouTube video that has a transcript (captions). Whether the video uses auto-generated or manual captions—which includes almost all sermons and podcasts—Berea can analyze it for theological claims."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How does the AI prevent hallucinations or making things up?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "We use a hybrid approach. First, Berea runs a traditional search algorithm (BM25) on a local Bible database to find relevant verses. The AI is then strictly constrained to compare the speaker's claim only against those specific verses, significantly reducing the chance of AI hallucination."
+                    }
+                  }
+                ]
               }
-            }
+            ]
           `}
         </Script>
       </head>
