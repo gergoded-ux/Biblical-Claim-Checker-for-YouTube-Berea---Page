@@ -65,7 +65,7 @@ export default function CardFanCarousel({
       const yPos = Math.pow(offset, 2) * 2.5 - (offset === 0 ? 10 : 0); // very flat vertical curve
       const zIndex = 100 - absOffset * 10;
       const scale = 1 - absOffset * 0.04;
-      const opacity = 1 - absOffset * 0.12;
+      const opacity = 1; // 100% solid opacity - NO transparency
 
       gsap.to(cardEl, {
         x: xPos,
@@ -114,15 +114,15 @@ export default function CardFanCarousel({
               onClick={() => {
                 onSelectShort(short);
               }}
-              className={`absolute w-[240px] md:w-[280px] aspect-[9/15] paper-card rounded-2xl overflow-hidden shadow-2xl border border-line/80 cursor-pointer bg-black transition-all duration-300 group ${
-                isCenter ? "ring-2 ring-primary/60 shadow-primary/20 scale-[1.02]" : ""
+              className={`absolute w-[240px] md:w-[280px] aspect-[9/15] rounded-2xl overflow-hidden shadow-2xl border border-line/80 cursor-pointer bg-stone-900 transition-all duration-300 group ${
+                isCenter ? "ring-2 ring-primary/60 shadow-primary/30 scale-[1.02]" : ""
               }`}
             >
-              {/* Thumbnail Image */}
+              {/* Thumbnail Image (Scaled 1.35x to crop out YouTube letterboxing/black edges) */}
               <img
                 src={`https://img.youtube.com/vi/${short.id}/hqdefault.jpg`}
                 alt={short.title}
-                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                className="w-full h-full object-cover scale-[1.35] group-hover:scale-[1.42] transition-transform duration-500 opacity-100"
               />
 
               {/* Dark Gradient Overlay */}
