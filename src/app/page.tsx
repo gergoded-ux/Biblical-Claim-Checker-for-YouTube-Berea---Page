@@ -109,15 +109,62 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. Social Proof / Logos */}
-      <section className="py-10 px-6 border-y border-line bg-surface/50">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-sm font-semibold text-muted tracking-widest uppercase mb-8">Supported Offline Translations & Frameworks</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="font-bold text-xl flex items-center gap-2"><BookOpen size={24}/> KJV</div>
-            <div className="font-bold text-xl flex items-center gap-2"><BookOpen size={24}/> WEB</div>
-            <div className="font-bold text-xl flex items-center gap-2"><BookOpen size={24}/> ESV</div>
-            <div className="font-bold text-xl flex items-center gap-2"><BookOpen size={24}/> NASB</div>
+      {/* 2. Dual Marquee Banner — Scripture Verses (→) & Translations (←) */}
+      <section className="py-0 border-y border-line bg-ink overflow-hidden">
+        {/* Top Row — Scripture Verses scrolling RIGHT */}
+        <div className="marquee-track border-b border-white/10 py-4">
+          <div className="marquee-right flex whitespace-nowrap w-max">
+            {[...Array(2)].map((_, dupeIdx) => (
+              <div key={dupeIdx} className="flex items-center">
+                {[
+                  { verse: "Acts 17:11", text: "They examined the Scriptures daily to see if these things were so." },
+                  { verse: "2 Timothy 2:15", text: "Be diligent to present yourself approved to God, a worker who does not need to be ashamed, rightly dividing the word of truth." },
+                  { verse: "1 John 4:1", text: "Beloved, do not believe every spirit, but test the spirits to see whether they are from God." },
+                  { verse: "Proverbs 18:17", text: "The one who states his case first seems right, until the other comes and examines him." },
+                  { verse: "Isaiah 8:20", text: "To the law and to the testimony! If they do not speak according to this word, it is because there is no light in them." },
+                  { verse: "John 17:17", text: "Sanctify them in the truth; your word is truth." },
+                  { verse: "2 Timothy 3:16", text: "All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness." },
+                  { verse: "Psalm 119:105", text: "Your word is a lamp to my feet and a light to my path." },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 mx-8">
+                    <span className="text-primary font-bold text-xs tracking-wide bg-primary/15 px-2.5 py-1 rounded-full shrink-0 border border-primary/20">
+                      {item.verse}
+                    </span>
+                    <span className="text-white/70 text-sm italic">
+                      "{item.text}"
+                    </span>
+                    <span className="text-white/20 mx-4">✦</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Row — Supported Translations scrolling LEFT */}
+        <div className="marquee-track py-3.5">
+          <div className="marquee-left flex whitespace-nowrap w-max">
+            {[...Array(2)].map((_, dupeIdx) => (
+              <div key={dupeIdx} className="flex items-center">
+                {[
+                  { abbr: "KJV", name: "King James Version" },
+                  { abbr: "WEB", name: "World English Bible" },
+                  { abbr: "ESV", name: "English Standard Version" },
+                  { abbr: "NASB", name: "New American Standard" },
+                  { abbr: "NIV", name: "New International Version" },
+                  { abbr: "NKJV", name: "New King James Version" },
+                  { abbr: "CSB", name: "Christian Standard Bible" },
+                  { abbr: "NLT", name: "New Living Translation" },
+                ].map((t, i) => (
+                  <div key={i} className="flex items-center gap-2.5 mx-8">
+                    <BookOpen size={16} className="text-primary/80 shrink-0" />
+                    <span className="text-white font-bold text-sm tracking-wider">{t.abbr}</span>
+                    <span className="text-white/40 text-xs hidden md:inline">{t.name}</span>
+                    <span className="text-white/15 mx-4">•</span>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>

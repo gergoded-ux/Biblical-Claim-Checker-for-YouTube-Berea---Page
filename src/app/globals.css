@@ -60,3 +60,27 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Marquee Animations */
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-right {
+  animation: marquee-right 45s linear infinite;
+}
+
+.marquee-left {
+  animation: marquee-left 35s linear infinite;
+}
+
+.marquee-track:hover .marquee-right,
+.marquee-track:hover .marquee-left {
+  animation-play-state: paused;
+}
