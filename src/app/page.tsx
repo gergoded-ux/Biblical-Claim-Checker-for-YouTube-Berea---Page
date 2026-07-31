@@ -62,7 +62,7 @@ export default function Home() {
         >
           <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-extrabold tracking-tight text-balance text-ink leading-tight">
             Study YouTube Theology <br className="hidden md:block" />
-            <span className="text-gradient">With Discernment</span>
+            <span className="text-gradient">With Scripture</span>
           </motion.h1>
           
           <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted text-balance leading-relaxed max-w-2xl mx-auto pt-2">
@@ -72,7 +72,7 @@ export default function Home() {
           <motion.div variants={fadeIn} className="flex justify-center pt-8">
             <button className="bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-full font-bold text-lg transition-all flex items-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1">
               <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome" className="w-6 h-6 brightness-0 invert" />
-              Add to Chrome - Start Discerning Today <ArrowRight size={20} />
+              Add to Chrome - Start Verifying Today <ArrowRight size={20} />
             </button>
           </motion.div>
         </motion.div>
@@ -126,7 +126,7 @@ export default function Home() {
       <section id="toolkit" className="py-24 px-6 relative max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Your Complete Toolkit</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Everything You Need to Discern</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Everything You Need to Examine Scripture</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
@@ -244,9 +244,9 @@ export default function Home() {
       {/* 5. Ultimate Transformation */}
       <section className="py-24 px-6 relative max-w-4xl mx-auto text-center">
         <Shield size={64} className="mx-auto text-primary mb-8 opacity-20" />
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Study Like the Bereans.<br/>Discern with Confidence.</h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Study Like the Bereans.<br/>Examine with Confidence.</h2>
         <p className="text-xl text-muted max-w-2xl mx-auto mb-10">
-          Stop being a passive consumer of YouTube theology. Become an active, discerning student of the Word.
+          Stop being a passive consumer of YouTube theology. Become an active, scripture-testing student of the Word.
         </p>
         <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
           Add to Chrome - It's Free
@@ -346,7 +346,7 @@ export default function Home() {
           {/* Free Tier */}
           <div className="paper-card p-10 flex flex-col">
             <h3 className="text-2xl font-bold mb-2">Berea Basic</h3>
-            <p className="text-muted text-sm mb-6">Start discerning truth immediately.</p>
+            <p className="text-muted text-sm mb-6">Start examining Scripture immediately.</p>
             <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted"></span></div>
             
             <button className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8">

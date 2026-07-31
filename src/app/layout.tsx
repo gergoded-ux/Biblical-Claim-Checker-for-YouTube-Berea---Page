@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: "Biblical Claim Checker for YouTube — Berea™",
   description: "Examine YouTube teachings against Scripture in a side panel. Berea is a Chrome extension that scrapes transcripts, extracts claims, and retrieves relevant Scripture.",
-  keywords: ["Berea", "Bible", "Scripture", "Discernment", "YouTube", "Chrome Extension", "Acts 17:11"],
+  keywords: ["Berea", "Bible", "Scripture", "Scripture Verification", "YouTube", "Chrome Extension", "Acts 17:11"],
   openGraph: {
     title: "Biblical Claim Checker for YouTube — Berea™",
     description: "Examine YouTube teachings against Scripture in a side panel. Berea is a Chrome extension that scrapes transcripts, extracts claims, and retrieves relevant Scripture.",
