@@ -5,6 +5,7 @@ import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Dow
 import { useState } from "react";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import ShortsGallery from "@/components/ShortsGallery";
+import CardFanCarousel from "@/components/ui/card-fan-carousel";
 import SidepanelModal from "@/components/SidepanelModal";
 import { ShortData } from "@/data/shortsData";
 
@@ -234,8 +235,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4.5 18-Shorts Showcase Gallery */}
-      <ShortsGallery onSelectShort={(short) => setSelectedShort(short)} />
+      {/* 4.5 18-Shorts Card Fan Carousel */}
+      <CardFanCarousel onSelectShort={(short) => setSelectedShort(short)} />
 
       {/* Sidepanel Modal Drawer */}
       <SidepanelModal short={selectedShort} onClose={() => setSelectedShort(null)} />
