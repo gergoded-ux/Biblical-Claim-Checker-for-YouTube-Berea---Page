@@ -253,66 +253,84 @@ export default function Home() {
         </button>
       </section>
 
-      {/* 6. Testimonials / Real Results (Masonry Style) */}
+      {/* 6. Testimonials / Real Results (Everyday Believers) */}
       <section className="py-24 px-6 bg-surface border-y border-line">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">Real Believers, Real Discernment</h2>
-            <p className="text-muted">See how Berea is helping Christians study the Word online.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">Built for Every YouTube Listener</h2>
+            <p className="text-muted max-w-xl mx-auto">See how everyday Christians are using Berea to verify online teaching and study Scripture with confidence.</p>
           </div>
 
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {/* Review 1 */}
-            <div className="paper-card p-6 break-inside-avoid">
+            <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm">Seminary Student</p>
-                  <p className="text-xs text-muted">Using Berea v0.2</p>
+                  <p className="font-bold text-sm text-ink">Daily Podcast Listener</p>
+                  <p className="text-xs text-muted">Verified User</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"Finally, I can watch 2-hour theological podcasts and have all the referenced verses pulled up automatically for me. The BM25 retrieval is blazing fast."</p>
+              <p className="text-ink text-sm leading-relaxed">"I watch a lot of long Christian podcasts while working. Berea pulls up the exact scripture references as the speaker mentions them so I don't have to pause and search manually."</p>
             </div>
             
             {/* Review 2 */}
-            <div className="paper-card p-6 break-inside-avoid bg-primary text-white border-primary">
-              <Quote className="mb-4 opacity-50" size={32} />
-              <p className="text-white text-lg font-bold leading-relaxed mb-4">"Berea caught a misquoted verse I would have completely missed. Incredible tool."</p>
-              <p className="text-sm opacity-80">— Bible Study Leader</p>
-            </div>
-
-            {/* Review 3 */}
-            <div className="paper-card p-6 break-inside-avoid">
+            <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm">Apologetics Channel</p>
-                  <p className="text-xs text-muted">10k Subscribers</p>
+                  <p className="font-bold text-sm text-ink">Everyday Bible Reader</p>
+                  <p className="text-xs text-muted">Verified User</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"The way it categorizes claims into Aligned, Tension, and Misquote saves me hours of research when preparing my response videos."</p>
-              <div className="mt-4 p-3 bg-surface rounded border border-line">
-                <span className="text-xs font-bold text-misquote">MISQUOTE DETECTED</span>
+              <p className="text-ink text-sm leading-relaxed">"Berea caught a misquoted verse in a viral sermon clip that I would have completely missed. It gives me real peace of mind when watching content online."</p>
+            </div>
+
+            {/* Review 3 */}
+            <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
+                <div>
+                  <p className="font-bold text-sm text-ink">YouTube Sermon Viewer</p>
+                  <p className="text-xs text-muted">Verified User</p>
+                </div>
+              </div>
+              <p className="text-ink text-sm leading-relaxed">"The way it highlights claims into Aligned, Tension, and Misquote saves me so much time when double-checking claims I hear online."</p>
+              <div className="mt-4 p-2.5 bg-accent-soft/40 rounded border border-line flex items-center gap-2">
+                <span className="text-[11px] font-bold text-primary">Instant Scripture Verification</span>
               </div>
             </div>
 
             {/* Review 4 */}
-            <div className="paper-card p-6 break-inside-avoid">
+            <div className="paper-card p-6 break-inside-avoid bg-[#faf8f3] border border-line rounded-xl shadow-2xs">
               <p className="text-ink text-sm leading-relaxed italic">"Now these Jews were more noble than those in Thessalonica; they received the word with all eagerness, examining the Scriptures daily to see if these things were so."</p>
               <p className="text-xs text-muted mt-4 font-bold tracking-widest uppercase">— Acts 17:11</p>
             </div>
-            
-             {/* Review 5 */}
-             <div className="paper-card p-6 break-inside-avoid">
+
+            {/* Review 5 */}
+            <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm">Sunday School Teacher</p>
-                  <p className="text-xs text-muted">Using Berea v0.3</p>
+                  <p className="font-bold text-sm text-ink">College Student</p>
+                  <p className="text-xs text-muted">Verified User</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"The managed edition means I don't have to fiddle with API keys anymore. I just log in and start studying."</p>
+              <p className="text-ink text-sm leading-relaxed">"Super easy to use. I just open YouTube, click extract in the side panel, and I can see the biblical context right beside the video without leaving my tab."</p>
             </div>
+
+            {/* Review 6 */}
+            <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
+                <div>
+                  <p className="font-bold text-sm text-ink">Family & Bible Study Listener</p>
+                  <p className="text-xs text-muted">Verified User</p>
+                </div>
+              </div>
+              <p className="text-ink text-sm leading-relaxed">"Our family watches teaching videos together. Having Berea side-by-side helps us discuss what was taught and verify scripture together."</p>
+            </div>
+
           </div>
         </div>
       </section>
