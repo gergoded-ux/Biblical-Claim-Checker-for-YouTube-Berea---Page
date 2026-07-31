@@ -1,2 +1,2 @@
-:HL["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/078t_2uthyzua.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"nkiSrg5kVqkXayIjiliuH"}
+:HL["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1yjcty9l8o0_9.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"RQoJRw-KXNuHFod3eQ5aA"}
