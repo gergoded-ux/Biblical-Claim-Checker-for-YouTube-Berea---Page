@@ -1583,28 +1583,37 @@ function interleaveByAuthor(data: ShortData[]): ShortData[] {
     list.push(item);
     byAuthor[item.author] = list;
   }
-  const authors = Object.keys(byAuthor).sort((a, b) => byAuthor[b].length - byAuthor[a].length);
-  const result: ShortData[] = [];
-  let added = true;
-  while (added) {
-    added = false;
-    for (const author of authors) {
-      if (byAuthor[author].length > 0) {
-        if (result.length > 0 && result[result.length - 1].author === author) {
-          const altAuthor = authors.find((a) => a !== author && byAuthor[a].length > 0);
-          if (altAuthor) {
-            result.push(byAuthor[altAuthor].shift()!);
-            added = true;
-          }
-        }
-        if (byAuthor[author].length > 0) {
-          result.push(byAuthor[author].shift()!);
-          added = true;
-        }
-      }
+
+  const melissa = [...(byAuthor['Melissa Dougherty'] || [])];
+  const driscoll = [...(byAuthor['Pastor Mark Driscoll'] || [])];
+  const alex = [...(byAuthor["Alex O'Connor"] || [])];
+
+  const singles: ShortData[] = [];
+  for (const k in byAuthor) {
+    if (k !== 'Melissa Dougherty' && k !== 'Pastor Mark Driscoll' && k !== "Alex O'Connor") {
+      singles.push(...byAuthor[k]);
     }
   }
-  return result;
+
+  const result: ShortData[] = new Array(data.length);
+  if (melissa[0]) result[0] = melissa[0];
+  if (melissa[1]) result[4] = melissa[1];
+  if (melissa[2]) result[9] = melissa[2];
+  if (melissa[3]) result[13] = melissa[3];
+
+  if (driscoll[0]) result[2] = driscoll[0];
+  if (driscoll[1]) result[7] = driscoll[1];
+  if (driscoll[2]) result[11] = driscoll[2];
+
+  if (alex[0]) result[6] = alex[0];
+  if (alex[1]) result[15] = alex[1];
+
+  const emptySlots = [1, 3, 5, 8, 10, 12, 14, 16, 17];
+  emptySlots.forEach((slotIdx, i) => {
+    if (singles[i]) result[slotIdx] = singles[i];
+  });
+
+  return result.filter(Boolean);
 }
 
 export const SHORTS_DATA: ShortData[] = interleaveByAuthor(RAW_SHORTS_DATA);
