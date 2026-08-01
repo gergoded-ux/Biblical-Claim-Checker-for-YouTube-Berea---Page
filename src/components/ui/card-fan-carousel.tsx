@@ -103,8 +103,19 @@ export default function CardFanCarousel({
         ref={containerRef}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative h-[480px] md:h-[540px] flex items-center justify-center my-6"
+        className="relative h-[500px] md:h-[560px] flex items-center justify-center my-2 pt-10"
       >
+        {/* Fluorescent High-Converting Call-to-Action Badge */}
+        <div className="absolute top-0 z-30 flex flex-col items-center pointer-events-none">
+          <div className="bg-amber-400 text-stone-950 px-5 py-2 rounded-full font-extrabold text-xs md:text-sm tracking-wide shadow-[0_0_30px_rgba(251,191,36,0.85)] border border-amber-200 flex items-center gap-2 animate-bounce">
+            <span className="text-base">⚡</span>
+            <span>Click Any Video to See Berea in Action</span>
+            <span className="bg-stone-950 text-amber-400 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ml-1 shadow-sm">
+              Interactive
+            </span>
+          </div>
+          <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-amber-400 -mt-0.5"></div>
+        </div>
         {cards.map((short, idx) => {
           const isCenter = idx === activeIndex;
           return (
