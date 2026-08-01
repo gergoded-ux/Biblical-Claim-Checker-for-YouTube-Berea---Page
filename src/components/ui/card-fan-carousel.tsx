@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ChevronLeft, ChevronRight, Sparkles, Play } from "lucide-react";
 import { ShortData, SHORTS_DATA } from "@/data/shortsData";
+import { BorderRotate } from "@/components/ui/animated-gradient-border";
 
 interface CardFanCarouselProps {
   cards?: ShortData[];
@@ -118,19 +119,9 @@ export default function CardFanCarousel({
         </div>
         {cards.map((short, idx) => {
           const isCenter = idx === activeIndex;
-          return (
-            <div
-              key={short.id}
-              ref={(el) => {
-                cardsRef.current[idx] = el;
-              }}
-              onClick={() => {
-                onSelectShort(short);
-              }}
-              className={`absolute w-[240px] md:w-[280px] aspect-[9/15] rounded-2xl overflow-hidden shadow-2xl border border-line/80 cursor-pointer bg-stone-900 transition-all duration-300 group ${
-                isCenter ? "ring-2 ring-primary/60 shadow-primary/30 scale-[1.02]" : ""
-              }`}
-            >
+          
+          const cardContent = (
+            <div className="w-full h-full relative overflow-hidden rounded-[14px]">
               {/* Thumbnail Image (HD MaxRes/SD with fallback, subtle crop) */}
               <img
                 src={`https://i.ytimg.com/vi/${short.id}/maxresdefault.jpg`}
@@ -161,20 +152,54 @@ export default function CardFanCarousel({
 
               {/* Subtle Hover Indicator */}
               <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-12 h-12 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-lg backdrop-blur-sm transform group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-lg backdrop-blur-sm transform group-hover:scale-110 transition-transform">
                   <Play size={20} className="ml-0.5 fill-white" />
                 </div>
               </div>
 
               {/* Bottom Details */}
               <div className="absolute bottom-3 left-3 right-3 z-10 text-left space-y-1">
-                <p className="text-[11px] font-bold text-primary-light uppercase tracking-wider">
+                <p className="text-[11px] font-bold text-red-400 uppercase tracking-wider">
                   {short.author}
                 </p>
                 <h3 className="text-xs font-bold text-white line-clamp-2 leading-snug drop-shadow-sm">
                   {short.title}
                 </h3>
               </div>
+            </div>
+          );
+
+          return (
+            <div
+              key={short.id}
+              ref={(el) => {
+                cardsRef.current[idx] = el;
+              }}
+              onClick={() => {
+                onSelectShort(short);
+              }}
+              className={`absolute w-[240px] md:w-[280px] aspect-[9/15] rounded-2xl cursor-pointer bg-stone-900 transition-all duration-300 group ${
+                isCenter ? "shadow-[0_0_40px_rgba(220,38,38,0.7)] scale-[1.02]" : "border border-line/80 shadow-xl"
+              }`}
+            >
+              {isCenter ? (
+                <BorderRotate
+                  animationSpeed={1.5}
+                  borderWidth={3}
+                  borderRadius={16}
+                  gradientColors={{
+                    primary: '#7f1d1d',
+                    secondary: '#dc2626',
+                    accent: '#f87171'
+                  }}
+                  backgroundColor="#1c1917"
+                  className="w-full h-full relative"
+                >
+                  {cardContent}
+                </BorderRotate>
+              ) : (
+                cardContent
+              )}
             </div>
           );
         })}
