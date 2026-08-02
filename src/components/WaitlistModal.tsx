@@ -107,7 +107,7 @@ export default function WaitlistModal({ isOpen, onClose, initialEmail = "" }: Wa
                       Launch Day Special Offer
                     </h4>
                     <p className="text-xs text-muted mt-0.5 leading-snug">
-                      Join today to unlock <strong className="text-ink">50 Bonus Free Weekly Credits</strong> + VIP day-one extension access.
+                      Join today to unlock <strong className="text-ink">10 Bonus Free Weekly Credits</strong> + VIP day-one extension access.
                     </p>
                   </div>
                 </div>

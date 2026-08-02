@@ -110,7 +110,7 @@ export default function Home() {
               </span>
               <span className="hidden sm:inline">•</span>
               <span className="text-primary font-bold bg-accent-soft px-2.5 py-0.5 rounded-full border border-line">
-                🎁 50 Bonus Credits on Launch
+                🎁 10 Bonus Credits on Launch
               </span>
             </div>
           </motion.div>
