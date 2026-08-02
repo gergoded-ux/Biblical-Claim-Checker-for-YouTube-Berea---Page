@@ -1,7 +1,7 @@
 1:"$Sreact.fragment"
 2:I[79520,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],""]
 9:I[68027,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"default",1]
-:HL["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/28yru2891u912.css","style"]
+:HL["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/3b4gosm6-deqx.css","style"]
 3:Td59,
             [
               {
@@ -64,7 +64,7 @@
                 ]
               }
             ]
-          0:{"P":null,"c":["","_not-found"],"q":"","i":false,"f":[[["",{"children":["/_not-found",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/28yru2891u912.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","$L2",null,{"id":"schema-org","type":"application/ld+json","children":"$3"}]}],"$L4"]}]]}],{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$@7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"H7cRen-QDRrA_Z1mQKa7J"}
+          0:{"P":null,"c":["","_not-found"],"q":"","i":false,"f":[[["",{"children":["/_not-found",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/3b4gosm6-deqx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","$L2",null,{"id":"schema-org","type":"application/ld+json","children":"$3"}]}],"$L4"]}]]}],{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$@7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"PR9U-xiL3lP2DprkbBQX9"}
 b:I[39756,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
 c:I[37457,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
 d:I[97367,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"OutletBoundary"]
@@ -77,7 +77,7 @@ e:"$Sreact.suspense"
 10:[]
 7:"$W10"
 8:["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
-a:["$","link","0",{"rel":"stylesheet","href":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/28yru2891u912.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+a:["$","link","0",{"rel":"stylesheet","href":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/3b4gosm6-deqx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
 12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 15:I[27201,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"IconMark"]
 f:null
