@@ -32,7 +32,7 @@ export default function WaitlistModal({ isOpen, onClose, initialEmail = "" }: Wa
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@") || !email.includes(".")) {
       setError("Please enter a valid email address.");
@@ -40,12 +40,31 @@ export default function WaitlistModal({ isOpen, onClose, initialEmail = "" }: Wa
     }
 
     setError("");
-    // Simulate generating a unique waitlist position number
-    const pos = Math.floor(Math.random() * 40) + 510; // e.g. #510 - #550
+    const pos = Math.floor(Math.random() * 40) + 510;
     localStorage.setItem("berea_waitlist_email", email);
     localStorage.setItem("berea_waitlist_position", pos.toString());
     setPositionNumber(pos);
     setIsSubmitted(true);
+
+    // Post lead payload to Google Sheets Web App Endpoint
+    const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email,
+            position: `#${pos}`,
+            timestamp: new Date().toISOString(),
+            source: "Berea Landing Page Waitlist",
+          }),
+          mode: "no-cors",
+        });
+      } catch (err) {
+        console.error("Error submitting waitlist email to Google Sheets:", err);
+      }
+    }
   };
 
   return (
