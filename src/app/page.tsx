@@ -2,17 +2,20 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User } from "lucide-react";
+import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User, Mail, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { BereaPipelineBeam } from "@/components/BereaPipelineBeam";
 import ShortsGallery from "@/components/ShortsGallery";
 import CardFanCarousel from "@/components/ui/card-fan-carousel";
 import SidepanelModal from "@/components/SidepanelModal";
+import WaitlistModal from "@/components/WaitlistModal";
 import { ShortData } from "@/data/shortsData";
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedShort, setSelectedShort] = useState<ShortData | null>(null);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [heroEmail, setHeroEmail] = useState("");
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -42,9 +45,12 @@ export default function Home() {
             <a href="#toolkit" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Toolkit</a>
             <a href="#pricing" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Pricing</a>
             <a href="#faq" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">FAQ</a>
-            <a href="#install" className="text-sm font-bold bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-hover transition-colors shadow-sm hover:shadow-md hover:-translate-y-0.5">
-              Add to Chrome
-            </a>
+            <button
+              onClick={() => setIsWaitlistOpen(true)}
+              className="text-sm font-bold bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-hover transition-colors shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            >
+              Join Waitlist
+            </button>
           </div>
         </div>
       </nav>
@@ -68,11 +74,45 @@ export default function Home() {
             Study YouTube theology with Scripture. Berea’s AI-powered side panel helps believers instantly verify theological claims in any video using local, offline Scripture retrieval.
           </motion.p>
           
-          <motion.div variants={fadeIn} className="flex justify-center pt-8">
-            <button className="bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-full font-bold text-lg transition-all flex items-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1">
-              <Image src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome" width={24} height={24} className="brightness-0 invert" />
-              Add to Chrome - Start Verifying Today <ArrowRight size={20} />
-            </button>
+          <motion.div variants={fadeIn} className="pt-6 max-w-xl mx-auto space-y-4">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsWaitlistOpen(true);
+              }}
+              className="flex flex-col sm:flex-row items-center gap-3 p-2 bg-surface paper-card border-line shadow-xl rounded-2xl"
+            >
+              <div className="relative flex-grow w-full">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" size={20} />
+                <input
+                  type="email"
+                  value={heroEmail}
+                  onChange={(e) => setHeroEmail(e.target.value)}
+                  placeholder="Enter your email address..."
+                  className="w-full pl-11 pr-4 py-3 bg-transparent text-ink placeholder:text-muted/60 focus:outline-none text-sm font-medium"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white px-7 py-3.5 rounded-xl font-bold text-sm md:text-base transition-all flex items-center justify-center gap-2 shadow-md shrink-0 active:scale-95"
+              >
+                <span>Get Early Access</span>
+                <ArrowRight size={18} />
+              </button>
+            </form>
+
+            {/* Social proof & incentive badge */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted font-medium pt-1">
+              <span className="flex items-center gap-1.5 text-ink font-semibold">
+                <Sparkles size={14} className="text-amber-500 fill-amber-400" />
+                <span>500+ Berean listeners on early access list</span>
+              </span>
+              <span className="hidden sm:inline">•</span>
+              <span className="text-primary font-bold bg-accent-soft px-2.5 py-0.5 rounded-full border border-line">
+                🎁 50 Bonus Credits on Launch
+              </span>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -402,8 +442,11 @@ export default function Home() {
             <p className="text-muted text-sm mb-6">Start examining Scripture immediately.</p>
             <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted"></span></div>
             
-            <button className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8">
-              Install Extension
+            <button
+              onClick={() => setIsWaitlistOpen(true)}
+              className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8"
+            >
+              Join Basic Waitlist
             </button>
             
             <ul className="space-y-4 text-sm text-ink flex-grow">
@@ -423,8 +466,11 @@ export default function Home() {
             <p className="text-muted text-sm mb-6">For power users and theologians.</p>
             <div className="text-4xl font-extrabold mb-8">Freemium<span className="text-lg font-normal text-muted">/upgrade</span></div>
             
-            <button className="w-full py-4 rounded-lg font-bold bg-primary text-white hover:bg-primary-hover transition-colors mb-8">
-              Get Unlimited Credits
+            <button
+              onClick={() => setIsWaitlistOpen(true)}
+              className="w-full py-4 rounded-lg font-bold bg-primary text-white hover:bg-primary-hover transition-colors mb-8 shadow-md"
+            >
+              Reserve Pro Early Access
             </button>
             
             <div className="bg-accent-soft p-3 rounded mb-6 text-xs font-bold text-center border border-line">
@@ -471,6 +517,12 @@ export default function Home() {
           ))}
         </div>
       </section>
+      {/* Waitlist Modal */}
+      <WaitlistModal
+        isOpen={isWaitlistOpen}
+        onClose={() => setIsWaitlistOpen(false)}
+        initialEmail={heroEmail}
+      />
     </div>
   );
 }
