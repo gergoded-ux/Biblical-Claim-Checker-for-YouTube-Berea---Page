@@ -47,7 +47,9 @@ export default function WaitlistModal({ isOpen, onClose, initialEmail = "" }: Wa
     setIsSubmitted(true);
 
     // Post lead payload to Google Sheets Web App Endpoint
-    const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL;
+    const webhookUrl =
+      process.env.NEXT_PUBLIC_GOOGLE_SHEET_WEBHOOK_URL ||
+      "https://script.google.com/macros/s/AKfycbwBZEnCJHi1_eazypm91AhnFDjWUnVIl9dHlKESh0KUrOmjhZBlLhMtFzYqQ_XL_P6A/exec";
     if (webhookUrl) {
       try {
         await fetch(webhookUrl, {
