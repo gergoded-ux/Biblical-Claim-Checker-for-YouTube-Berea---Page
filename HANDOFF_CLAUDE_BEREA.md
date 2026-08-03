@@ -1,87 +1,262 @@
-# Handoff: Berea Claim Extraction & Discernment Pipeline for Claude
+# Handoff: Berea Claim Extraction & Discernment Pipeline for Claude (v2 — corrected)
 
-This document provides the exact system prompts, schemas, parameters, and instructions for Claude to run the full **Berea Claim Extraction & Theological Discernment Pipeline** for the 18 YouTube Shorts.
+**Supersedes the prior handoff.** The first run of this task (18 YouTube Shorts →
+`src/data/shortsData.ts`) produced data that does **not** match what the real
+Chrome extension actually outputs. This version is grounded in a **real export
+the user downloaded from the real extension** (`berea-3tBVnTVDZJQ.md`) and the
+**real source code** that generates it — not assumption. Read §5 before writing
+any code; it lists the exact mistakes the first pass made so you don't repeat them.
 
 ---
 
-## 1. Required Execution Parameters
+## 1. Required Execution Parameters (unchanged)
 
 | Parameter | Value / Setting |
 | :--- | :--- |
 | **Doctrinal Lens** | `Neutral / Berean (default)` (`neutral_berean`) |
 | **Scripture Translation** | `WEB` (World English Bible) |
-| **Pipeline Architecture** | Two-Phase Pipeline (Phase 1: Claim Extraction ➔ Phase 2: RAG Scripture Retrieval & Discernment) |
+| **Pipeline Architecture** | Two-Phase: Phase 1 Claim Extraction → Phase 2 RAG Retrieval & Discernment |
+| **Discernment model** | `anthropic/claude-haiku-4.5` (fixed in the real product — see `berea-extension/sidepanel/sidepanel.js` `MODEL` constant) |
+| **Extraction / expansion model** | `meta-llama/llama-4-maverick` (fixed — `FAST_MODEL` constant) |
 
-### Doctrinal Lens Definition: `neutral_berean`
-> *"Surface tension and supporting passages; on genuinely contested matters render no single verdict. But DO flag tension when the speaker adds to, or applies against, what the text says (even if their broader point is orthodox), and assert misquote when a cited verse is altered or used against its plain context."*
+**Do not reimplement the prompts.** Import and call the real functions:
+`extractClaimsForVideo` and `verifyClaims` from `berea-extension/lib/pipeline.js`,
+unmodified. A working Node harness that does exactly this already exists —
+see §6. Fix it, don't rewrite it from scratch.
 
 ---
 
-## 2. Pipeline Execution Workflow
+## 2. The workflow — and the part the first pass got wrong
 
-### Phase 1: Claim Extraction (Transcript Parsing)
+The real extension is **two phases with a human selection step in between**:
 
-#### System Prompt & Instructions
-Extract all checkable claims from the video transcript. A claim is checkable if it asserts a specific statement about:
-1. **Scripture / Citation:** Quotation, paraphrase, or application of a specific Bible verse/passage.
-2. **Doctrinal / Theological:** God's character, salvation, sin, covenant, morality, end times, or Christian life.
-3. **Historical / Factual:** Historical claims about the church, early fathers, church history, or pagan antiquity.
-4. **Application:** Practical commands presented as mandatory biblical duty.
+1. **Extract** — reads the transcript, lists *every* checkable claim with a
+   timestamp. Cheap, flat cost regardless of video length.
+2. **The user selects which claims to verify.** They do **not** verify
+   everything. A real signed-in user has **5 free credits/week**; extraction
+   costs 1, each verified claim costs 1 more. Verifying all 18 claims from one
+   video would cost 19 credits — **nearly four weeks of the free tier** for a
+   single video. No real user session looks like "verify everything."
+3. **Verify** — only the selected subset goes through retrieval + discernment.
+   Everything else stays **unverified** and is still part of the report.
 
-#### Phase 1 Claim Object Schema
-```json
+**Real example** (the user's actual download, `berea-3tBVnTVDZJQ.md`):
+> `Verified 4 of 18 extracted claims`
+
+That's what a real interactive user session looks like — 4 of 18 verified,
+14 left as an `## Unverified claims (14)` section (timestamp, type, claim
+text only — no verdict, no scripture, no discernment prose).
+
+**For the shortsData.ts landing-page dataset specifically, the product
+decision (explicit, 2026-07-31) is to verify ALL extracted claims for every
+video** — comprehensive coverage beats behavioral realism for a showcase
+gallery. `unverified_claims` stays in the schema (§3/§8) for forward
+compatibility and because it's what the real product produces in normal use,
+but for this dataset it will be an empty array on every entry. **What must
+not regress is the correct, complete schema per claim** (§3) — that was the
+actual bug in v1, not the verification rate.
+
+---
+
+## 3. Exact real output schema (ground truth: `pipeline.js` + `sidepanel.js`)
+
+### A verified claim — every field, exact names, exact types
+
+```ts
 {
-  "id": "c1",
-  "time": "M:SS",
-  "verbatim_quote_span": "Exact quote spoken by the speaker in the transcript",
-  "claim_text": "Clear, standalone summary of the theological claim being made",
-  "claim_type": "scripture_citation | doctrinal | historical_factual | application",
-  "cited_reference": "Book C:V (or null if none explicitly named)"
+  claim_id: string,              // e.g. "c-1"
+  start_seconds: number,
+  claim_type: "doctrinal" | "scripture_citation" | "historical_factual" | "application",
+  claim_text: string,             // clean paraphrase
+  verbatim_quote_span: string,     // EXACT words the speaker said, ORIGINAL LANGUAGE
+                                   // (the real example is a French video — the quote
+                                   // stays in French even though the analysis is English)
+  cited_reference: string | null, // only set if the speaker named a specific verse
+
+  biblical_teaching: string,      // "What the Bible says" — 2-4 sentences, ONLY cites
+                                   // refs that are actually in the retrieved set
+  broader_teaching: string,       // "Tradition · context" — historic/tradition prose,
+                                   // NEVER contains a verse reference
+  speaker_alignment: string,      // "How the speaker compares" — 2-4 sentences
+
+  verdict: "aligned" | "partially_aligned" | "tension" | "unsupported" | "misquote" | "not_a_scriptural_claim",
+  verdict_basis: "broadly_held" | "lens_dependent",
+  confidence: "low" | "medium" | "high",
+
+  supporting_refs: [{ reference: string, translation: string, text: string }, ...],
+  tension_refs:    [{ reference: string, translation: string, text: string }, ...],
+  study_refs:      [{ reference: string, translation: string, text: string }, ...],
 }
+```
+
+**`supporting_refs`/`tension_refs`/`study_refs` are arrays of objects carrying
+the ACTUAL VERSE TEXT and translation label — never bare reference strings.**
+This was the single biggest gap in the first pass (`verses: string[]` threw
+the real verse text away). `study_refs` is a genuinely distinct category
+(passages worth reading that aren't cited as direct support or tension) — keep
+it, don't drop it or use it only as a fallback.
+
+### An unverified claim — much thinner
+
+```ts
+{
+  claim_id: string,
+  start_seconds: number,
+  claim_type: "doctrinal" | "scripture_citation" | "historical_factual" | "application",
+  claim_text: string,
+}
+```
+No verdict, no scripture, no discernment prose — it was never sent through Phase 2.
+
+### Exact verdict display labels (`sidepanel.js` `VERDICT_LABELS`, byte-exact)
+
+```js
+{
+  aligned: "Aligned",
+  partially_aligned: "Partial",
+  tension: "Tension",
+  unsupported: "Unsupported",
+  misquote: "Misquote",
+  not_a_scriptural_claim: "N/A",   // NOT "Not scriptural" — that string is only the
+}                                    // filter-chip label, not the report/card label.
+```
+
+### One subtlety worth knowing, not repeating verbatim
+
+A real exported report's `Model:` line shows the **extraction-phase** model
+(`meta-llama/llama-4-maverick`), not the discernment model — because
+`header.settings.model` is set at the end of Phase 1, and Phase 2 doesn't
+overwrite it. If you're producing structured data (not literally imitating the
+`.md` export), don't reproduce that ambiguity — just record
+`extraction_model` and `discernment_model` as two separate, clearly-labeled
+fields.
+
+---
+
+## 4. Exact real markdown export algorithm (ground truth: `reportToMarkdown()`,
+`berea-extension/sidepanel/sidepanel.js` ~L1328-1400)
+
+Use this as the unambiguous reference if the target output is markdown, or as
+the field/order reference even if the target is structured JSON/TS:
+
+```
+# Biblical Claim Checker for YouTube — Berea™ · {video title}
+
+- Channel: {channel}
+- Video: {url}
+- Duration: {mm:ss}
+- Lens (last verification): {lens id}
+- Translation (last verification): {translation}
+- Model: {extraction-phase model}
+- Verified {N verified} of {M total extracted} claims
+
+---
+
+## {VERDICT_LABEL} · {mm:ss} · {claim_type with _ replaced by space}
+
+**Claim:** {claim_text}
+
+> *"{verbatim_quote_span}"*
+
+*Speaker cited:* {cited_reference}          ← ONLY if cited_reference is set
+
+**What the Bible says:** {biblical_teaching}
+
+*Tradition · context:* {broader_teaching}   ← ONLY if non-empty
+
+**How the speaker compares:** {speaker_alignment}
+
+**Supporting:**
+- *{reference}* ({translation}) — {verse text}
+  ...                                        ← ONLY if supporting_refs non-empty
+
+**Tension:**
+- *{reference}* ({translation}) — {verse text}
+  ...                                        ← ONLY if tension_refs non-empty
+
+**Study yourself:**
+- *{reference}* ({translation}) — {verse text}
+  ...   ← study_refs MINUS any ref already shown in Supporting or Tension
+        (dedup against those two sets — that's a display-time filter, keep
+        the raw study_refs in the underlying data, only dedup when rendering)
+
+*Confidence: {confidence} · {verdict_basis with _ replaced by space}*
+
+---
+
+[... repeat per verified claim ...]
+
+## Unverified claims (N)
+
+- *{mm:ss}* · **{claim_type with _ replaced by space}** · {claim_text}
+[... one line per unverified claim ...]
 ```
 
 ---
 
-### Phase 2: RAG Scripture Retrieval & Discernment Evaluation
+## 5. What the first pass got wrong — concrete, so it isn't repeated
 
-For each extracted claim, retrieve relevant **WEB (World English Bible)** passages and execute the following system prompt.
-
-#### Phase 2 Discernment System Prompt
-```text
-You are Berea — a careful, non-authoritarian scripture study assistant. Your PRIMARY job is to answer the question: "What does the Bible say about this topic?"
-
-You will be given:
-  1. ONE claim made by a YouTube speaker
-  2. ACTUAL retrieved scripture passages on the topic of the claim (WEB Translation)
-
-Produce a STUDY-FOCUSED response with three parts: biblical teaching, then tradition/context, then how the speaker compares.
-
-Active doctrinal lens: Neutral / Berean (default)
-Surface tension and supporting passages; on genuinely contested matters render no single verdict. But DO flag tension when the speaker adds to, or applies against, what the text says (even if their broader point is orthodox), and assert misquote when a cited verse is altered or used against its plain context.
-
-Output STRICT JSON ONLY:
-{
-  "biblical_teaching": "2–4 sentences summarizing what the Bible actually says on this topic, using ONLY the retrieved passages string references (e.g. 'Romans 8:28'). If retrieved passages are sparse or don't directly address the topic, say so plainly here.",
-  "broader_teaching": "1–3 sentences of historic Christian interpretive context: what major traditions (Catholic, Orthodox, Reformed, Pentecostal, etc.) hold on this topic; Greek or Hebrew terminology where relevant (e.g. porneia, hesed, agape); scholarly nuance. STRICTLY narrative prose — NO verse references in this field.",
-  "speaker_alignment": "2–4 sentences. Compare the speaker's claim to both the biblical teaching and the broader tradition above. Note what aligns, what differs, what's missing, what's added. Stay specific — refer to the speaker's actual words.",
-  "verdict": "aligned | partially_aligned | tension | unsupported | misquote | not_a_scriptural_claim",
-  "verdict_basis": "broadly_held | lens_dependent",
-  "confidence": "low | medium | high",
-  "supporting_refs": ["Romans 8:28"],
-  "tension_refs": ["..."],
-  "study_refs": ["..."]
-}
-
-Rules:
-- biblical_teaching must NEVER cite a reference that isn't in the Retrieved Passages list.
-- broader_teaching MUST NOT contain verse references at all — use only narrative prose about traditions, terminology, and scholarly context.
-- EISEGESIS → tension: if the speaker reads a claim INTO a passage that the passage does not support, verdict = tension even when the broader point is orthodox.
-- For scripture_citation claims: if they alter wording or apply against plain context, verdict = misquote.
-```
+1. **Verified 100% of extracted claims for every video.** Real users can't do
+   this under the free tier (see §2's math), and it doesn't match the real
+   export's "N of M" pattern. → Select a realistic subset per video (§2).
+2. **Collapsed `supporting_refs`/`tension_refs`/`study_refs` into one flat
+   `verses: string[]` of bare reference strings**, discarding the actual verse
+   text and translation. → Keep all three as separate arrays of
+   `{reference, translation, text}` objects (§3).
+3. **Dropped `confidence` and `verdict_basis` entirely.** → Include both;
+   they're real fields on every verified claim (§3).
+4. **Dropped `cited_reference`.** → Include it when the speaker named a
+   specific verse; it's what drives misquote detection framing.
+5. **No concept of "unverified claims" in the output at all.** → Every short's
+   data needs BOTH a `claims` (verified) array and an `unverified_claims`
+   array, exactly mirroring the real product's behavior.
+6. Wrote a generic `explanation: string` field that duplicated
+   `speaker_alignment` — not present in the real object. → Don't invent fields;
+   use exactly `biblical_teaching` / `broader_teaching` / `speaker_alignment`
+   as the real pipeline does (§3), so any future "render this like a real
+   card" feature can consume the data without translation.
 
 ---
 
-## 3. List of 18 YouTube Shorts to Process
+## 6. Reusable infrastructure — fix it, don't rewrite it
+
+The last run already built and validated a Node harness that correctly:
+- imports the REAL `extractClaimsForVideo`/`verifyClaims` from `pipeline.js`
+  (never reimplement the prompts)
+- mirrors the real local retriever (`retriever/offscreen.js`) in Node —
+  same BM25 + bge-small embeddings + RRF + cross-refs, same 31,102-verse corpus
+- authenticates through a local proxy shim using the `CLIENT_TOKEN` dev-bypass
+  (billing-exempt, safe — never touches a real user's credits or the live
+  deployment)
+
+Files (in the `BEREA` repo, sibling to `Berea-Page`):
+- `tools/eval/gen-shorts-data.mjs` — the generator. **Needs updating**: add
+  the claim-selection step from §2, and fix the per-claim mapping to carry the
+  full schema from §3 (currently collapses refs to bare strings and drops
+  `confidence`/`verdict_basis`/`cited_reference`/`unverified_claims`).
+- `tools/eval/local-proxy-shim.mjs` — local stand-in for the deployed proxy,
+  already has crash-resilience (try/catch per request) after a prior bug.
+  Works as-is.
+- `tools/eval/shorts-transcripts.json` — all 18 real transcripts, already
+  fetched (6 from an earlier Antigravity attempt, 12 fetched via live browser
+  automation against YouTube's transcript panel). Reuse as-is.
+
+**Before running:**
+1. Start the shim: `cd BEREA && set -a && . ./server/.env && set +a && node tools/eval/local-proxy-shim.mjs` (needs `CLIENT_TOKEN` in `server/.env`; never add `CLIENT_TOKEN` to the live Vercel deployment).
+2. Temporarily point `berea-extension/lib/openrouter.js`'s `PROXY_URL` at
+   `http://localhost:3000/api/chat` — **revert this to the live URL
+   (`https://berea-proxy.vercel.app/api/chat`) the moment the run finishes.**
+   This constant is the extension's real production config; never leave it
+   pointed at localhost.
+3. Run the generator, then run `npm run build` in `Berea-Page` to confirm the
+   output compiles before calling it done.
+4. Kill the shim, confirm port 3000 is clear, confirm `server/`'s tests and
+   `berea-extension/`'s tests still pass, confirm the live proxy still
+   responds normally. None of this local testing should ever touch production.
+
+---
+
+## 7. List of 18 YouTube Shorts (unchanged from v1)
 
 | # | Video ID | Author | Title & URL |
 | :- | :--- | :--- | :--- |
@@ -106,22 +281,38 @@ Rules:
 
 ---
 
-## 4. Final Output Target Format (`src/data/shortsData.ts`)
-
-Each processed Short should produce a TypeScript object matching this interface for drop-in inclusion into the landing page:
+## 8. Final Output Target (`src/data/shortsData.ts`)
 
 ```typescript
-export interface DemoClaim {
+export interface RefHit {
+  reference: string;
+  translation: string;
+  text: string;
+}
+
+export interface VerifiedClaim {
+  id: string;
+  time: string;                 // "M:SS"
+  claim_type: "doctrinal" | "scripture_citation" | "historical_factual" | "application";
+  speakerText: string;          // verbatim_quote_span
+  claim: string;                // claim_text
+  cited_reference: string | null;
+  verdict: "aligned" | "partially_aligned" | "tension" | "unsupported" | "misquote" | "not_a_scriptural_claim";
+  verdict_basis: "broadly_held" | "lens_dependent";
+  confidence: "low" | "medium" | "high";
+  biblical_teaching: string;
+  broader_teaching: string;
+  speaker_alignment: string;
+  supporting_refs: RefHit[];
+  tension_refs: RefHit[];
+  study_refs: RefHit[];
+}
+
+export interface UnverifiedClaim {
   id: string;
   time: string;
-  speakerText: string;
+  claim_type: "doctrinal" | "scripture_citation" | "historical_factual" | "application";
   claim: string;
-  verdict: "aligned" | "tension" | "misquote" | "partially_aligned" | "unsupported" | "not_a_scriptural_claim";
-  verses: string[];
-  explanation: string;
-  biblical_teaching?: string;
-  broader_teaching?: string;
-  speaker_alignment?: string;
 }
 
 export interface ShortData {
@@ -129,6 +320,15 @@ export interface ShortData {
   author: string;
   title: string;
   category: string;
-  claims: DemoClaim[];
+  extraction_model: string;
+  discernment_model: string;
+  claims: VerifiedClaim[];              // only the selected, verified subset
+  unverified_claims: UnverifiedClaim[]; // everything extracted but not verified
 }
 ```
+
+This is a **superset** of the v1 shape (adds `cited_reference`,
+`verdict_basis`, `confidence`, splits `verses` into three typed ref arrays,
+adds `unverified_claims`) — should not require changes to
+`ShortsGallery.tsx`/`page.tsx`, only to how `SidepanelModal.tsx` renders a
+claim card, if it wants to show the fuller picture.

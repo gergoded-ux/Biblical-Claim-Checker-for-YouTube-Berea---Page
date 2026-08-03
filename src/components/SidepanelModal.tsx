@@ -218,13 +218,13 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
 
                         <div className="bg-[#faf8f3] p-2 rounded border border-line/60">
                           <span className="text-[10px] uppercase font-bold text-muted block mb-0.5">What the Bible says</span>
-                          <p className="text-xs text-ink leading-relaxed">{claim.explanation}</p>
+                          <p className="text-xs text-ink leading-relaxed">{claim.biblical_teaching}</p>
                         </div>
 
                         <div className="flex flex-wrap gap-1 pt-1">
-                          {claim.verses.map((v) => (
-                            <span key={v} className="text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
-                              {v}
+                          {[...claim.supporting_refs, ...claim.tension_refs].map((v) => (
+                            <span key={v.reference} className="text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
+                              {v.reference}
                             </span>
                           ))}
                         </div>
