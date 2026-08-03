@@ -113,6 +113,13 @@ export default function Home() {
                 🎁 10 Bonus Credits on Launch
               </span>
             </div>
+
+            {/* Holy Spirit & Discernment Trust Banner */}
+            <div className="pt-2">
+              <p className="text-[11px] md:text-xs text-muted/80 max-w-md mx-auto italic border-t border-line/40 pt-3">
+                📖 Designed as a Scripture cross-referencing tool for personal study (Acts 17:11). Spiritual discernment comes from the Holy Spirit.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </section>
