@@ -214,23 +214,87 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
                         <div>
                           <span className="text-[10px] uppercase font-bold text-muted block mb-0.5">Claim</span>
                           <p className="text-xs font-bold text-ink leading-snug">{claim.claim}</p>
+                          <p className="text-xs italic text-muted mt-1 border-l-2 border-line/60 pl-2">"{claim.speakerText}"</p>
                         </div>
 
-                        <div className="bg-[#faf8f3] p-2 rounded border border-line/60">
-                          <span className="text-[10px] uppercase font-bold text-muted block mb-0.5">What the Bible says</span>
-                          <p className="text-xs text-ink leading-relaxed">{claim.biblical_teaching}</p>
+                        <div className="bg-[#faf8f3] p-2 rounded border border-line/60 space-y-3">
+                          <div>
+                            <span className="text-[10px] uppercase font-bold text-muted block mb-0.5">What the Bible says</span>
+                            <p className="text-xs text-ink leading-relaxed">{claim.biblical_teaching}</p>
+                          </div>
+                          
+                          <div>
+                            <span className="text-[10px] uppercase font-bold text-muted block mb-0.5">Tradition · context</span>
+                            <p className="text-xs text-ink leading-relaxed italic">{claim.broader_teaching}</p>
+                          </div>
+                          
+                          <div>
+                            <span className="text-[10px] uppercase font-bold text-muted block mb-0.5">How the speaker compares</span>
+                            <p className="text-xs text-ink leading-relaxed">{claim.speaker_alignment}</p>
+                          </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-1 pt-1">
-                          {[...claim.supporting_refs, ...claim.tension_refs].map((v) => (
-                            <span key={v.reference} className="text-[10px] font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
-                              {v.reference}
-                            </span>
-                          ))}
+                        <div className="space-y-3 pt-1">
+                          {claim.supporting_refs && claim.supporting_refs.length > 0 && (
+                            <div>
+                              <span className="text-[10px] uppercase font-bold text-muted block mb-1">Supporting:</span>
+                              <div className="space-y-1.5">
+                                {claim.supporting_refs.map((v) => (
+                                  <div key={v.reference} className="text-xs text-ink leading-relaxed">
+                                    <span className="font-bold">— {v.reference} ({v.translation}):</span> {v.text}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          
+                          {claim.tension_refs && claim.tension_refs.length > 0 && (
+                            <div>
+                              <span className="text-[10px] uppercase font-bold text-muted block mb-1">Tension:</span>
+                              <div className="space-y-1.5">
+                                {claim.tension_refs.map((v) => (
+                                  <div key={v.reference} className="text-xs text-ink leading-relaxed">
+                                    <span className="font-bold">— {v.reference} ({v.translation}):</span> {v.text}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {claim.study_refs && claim.study_refs.length > 0 && (
+                            <div>
+                              <span className="text-[10px] uppercase font-bold text-muted block mb-1">Study yourself:</span>
+                              <div className="space-y-1.5">
+                                {claim.study_refs.map((v) => (
+                                  <div key={v.reference} className="text-xs text-ink leading-relaxed">
+                                    <span className="font-bold">— {v.reference} ({v.translation}):</span> {v.text}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
                   </div>
+
+                  {/* Unverified Claims */}
+                  {short.unverified_claims && short.unverified_claims.length > 0 && filter === "all" && (
+                    <div className="mt-6 pt-4 border-t border-line">
+                      <h4 className="text-xs font-bold text-ink uppercase tracking-wider mb-3">
+                        Unverified claims ({short.unverified_claims.length})
+                      </h4>
+                      <ul className="space-y-2">
+                        {short.unverified_claims.map((uc) => (
+                          <li key={uc.id} className="text-xs text-muted flex gap-2">
+                            <span className="font-mono text-[10px] mt-0.5 shrink-0 text-primary">{uc.time}</span>
+                            <span className="font-bold uppercase text-[10px] mt-0.5 shrink-0 w-24">{uc.claim_type.replace('_', ' ')}</span>
+                            <span className="leading-relaxed">{uc.claim}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                 </motion.div>
               )}
