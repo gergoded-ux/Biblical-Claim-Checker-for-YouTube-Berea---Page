@@ -105,6 +105,7 @@ export function BereaPipelineBeam() {
         fromRef={claimRef}
         toRef={bm25Ref}
         curvature={-40}
+        reverse
         gradientStartColor="#7c3aed"
         gradientStopColor="#6b3f1f"
         duration={5}
@@ -116,6 +117,7 @@ export function BereaPipelineBeam() {
         fromRef={bm25Ref}
         toRef={verdictRef}
         curvature={40}
+        reverse
         gradientStartColor="#6b3f1f"
         gradientStopColor="#d97706"
         duration={5}
