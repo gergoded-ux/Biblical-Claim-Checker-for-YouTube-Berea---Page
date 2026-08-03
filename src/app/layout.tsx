@@ -81,7 +81,7 @@ export default function RootLayout({
                     "name": "Is Berea really free to use?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Berea is a freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for unlimited usage."
+                      "text": "Berea is a credit-based freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for higher credit allowances."
                     }
                   },
                   {

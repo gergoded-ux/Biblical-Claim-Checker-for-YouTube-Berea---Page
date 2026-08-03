@@ -485,7 +485,7 @@ export default function Home() {
             </div>
 
             <ul className="space-y-4 text-sm text-ink flex-grow">
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>Unlimited AI verdicts</strong></li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>Expanded monthly credit allowance</strong></li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Exportable Markdown Reports</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Advanced Theology Lenses</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Priority Support</li>
@@ -503,7 +503,7 @@ export default function Home() {
           {[
             { q: "Does Berea track my YouTube history or personal data?", a: "No. Berea is 100% private. It only activates when you open the side panel and explicitly click 'Extract'. It only reads the transcript of the video you are currently watching and does not track your general browsing history or personal data." },
             { q: "What Bible translation does Berea use for verification?", a: "Currently, the local retrieval engine defaults to the World English Bible (WEB) and King James Version (KJV). The AI strictly compares claims against the retrieved verses, minimizing denominational bias by sticking to the text itself." },
-            { q: "Is Berea really free to use?", a: "Berea is a freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for unlimited usage." },
+            { q: "Is Berea really free to use?", a: "Berea is a credit-based freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for higher credit allowances." },
             { q: "Does it work on every YouTube video?", a: "Berea works on any YouTube video that has a transcript (captions). Whether the video uses auto-generated or manual captions—which includes almost all sermons and podcasts—Berea can analyze it for theological claims." },
             { q: "How does the AI prevent hallucinations or making things up?", a: "We use a hybrid approach. First, Berea runs a traditional search algorithm (BM25) on a local Bible database to find relevant verses. The AI is then strictly constrained to compare the speaker's claim only against those specific verses, significantly reducing the chance of AI hallucination." }
           ].map((faq, i) => (
