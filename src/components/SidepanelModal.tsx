@@ -159,8 +159,8 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
                 <div className="py-12 flex flex-col items-center justify-center text-center space-y-4">
                   <Search className="animate-pulse text-primary" size={36} />
                   <div>
-                    <h4 className="font-bold text-sm text-ink">Offline Scripture Retrieval</h4>
-                    <p className="text-xs text-muted mt-1">Searching WEB + KJV Bible database (BM25 search)...</p>
+                    <h4 className="font-bold text-sm text-ink">Instant Scripture Retrieval</h4>
+                    <p className="text-xs text-muted mt-1">Searching WEB + KJV Bible database...</p>
                   </div>
                   <div className="w-48 bg-line h-1.5 rounded-full overflow-hidden">
                     <div className="bg-primary h-full transition-all duration-75" style={{ width: `${progress}%` }}></div>
@@ -303,7 +303,7 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
 
             {/* Sidepanel Footer */}
             <div className="p-3 border-t border-line bg-surface text-center text-[10px] text-muted">
-              Powered by Berea™ Hybrid BM25 Engine · 100% Offline Scripture Search
+              Powered by Berea™ Verification Engine · Instant Scripture Search
             </div>
 
           </div>

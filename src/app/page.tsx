@@ -71,7 +71,7 @@ export default function Home() {
           </motion.h1>
           
           <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted text-balance leading-relaxed max-w-2xl mx-auto pt-2">
-            Study YouTube theology with Scripture. Berea’s AI-powered side panel helps believers instantly verify theological claims in any video using local, offline Scripture retrieval.
+            Study YouTube theology with Scripture. Berea’s AI-powered side panel helps believers instantly verify theological claims in any video right beside the screen.
           </motion.p>
           
           <motion.div variants={fadeIn} className="pt-6 max-w-xl mx-auto space-y-4">
@@ -307,8 +307,8 @@ export default function Home() {
       <section className="py-24 px-6 relative max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Under the Hood</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Checks Sermon Transcripts Offline</h2>
-          <p className="text-muted max-w-2xl mx-auto">From the moment you press "Extract" on any YouTube video, Berea runs a 6-step pipeline — entirely in your browser side panel.</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Checks Sermon Transcripts</h2>
+          <p className="text-muted max-w-2xl mx-auto">From the moment you press "Extract" on any YouTube video, Berea runs a 6-step pipeline — right inside your browser side panel.</p>
         </div>
         <BereaPipelineBeam />
 
@@ -328,7 +328,7 @@ export default function Home() {
           </div>
           <div className="text-center">
             <div className="w-8 h-8 rounded-full bg-accent-soft text-primary flex items-center justify-center mx-auto mb-2 text-sm font-bold">4</div>
-            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Offline BM25 Scripture search</span> — retrieves the most relevant Bible passages locally.</p>
+            <p className="text-xs md:text-sm text-muted"><span className="font-bold text-ink">Instant Scripture search</span> — retrieves the most relevant Bible passages automatically.</p>
           </div>
           <div className="text-center">
             <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-2 text-sm font-bold">5</div>
@@ -412,11 +412,11 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><Shield size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm text-ink">100% Private & Offline</p>
-                  <p className="text-xs text-muted">Browser-based BM25 engine</p>
+                  <p className="font-bold text-sm text-ink">Private & Browser-Based</p>
+                  <p className="text-xs text-muted">Runs right inside YouTube</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">Your browsing history stays yours. Berea embeds a complete 31,102-verse Scripture index directly inside the Chrome extension, performing local searches without sending history to external servers.</p>
+              <p className="text-ink text-sm leading-relaxed">Your general browsing history stays private. Berea operates right inside your Chrome side panel while you watch, keeping your study organized and distraction-free.</p>
             </div>
 
             {/* Use Case 6 */}
@@ -458,8 +458,8 @@ export default function Home() {
             
             <ul className="space-y-4 text-sm text-ink flex-grow">
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Weekly AI processing credits</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> 100% Local BM25 Scripture DB</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Transcript extraction</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Instant Scripture Database Search</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Automatic Transcript Extraction</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Google Sign-in sync</li>
             </ul>
           </div>

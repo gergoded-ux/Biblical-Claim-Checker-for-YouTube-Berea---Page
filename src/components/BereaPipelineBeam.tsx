@@ -61,9 +61,9 @@ export function BereaPipelineBeam() {
           </PipelineNode>
         </div>
 
-        {/* Row 2: BM25 Scripture DB (center hub) */}
+        {/* Row 2: Scripture DB (center hub) */}
         <div className="flex flex-row items-start justify-center">
-          <PipelineNode ref={bm25Ref} label="Scripture Retrieval" sublabel="100% offline BM25" className="size-18 md:size-20 border-primary bg-accent-soft shadow-[0_0_40px_-8px_rgba(107,63,31,0.3)]">
+          <PipelineNode ref={bm25Ref} label="Scripture Retrieval" sublabel="Instant Bible Index" className="size-18 md:size-20 border-primary bg-accent-soft shadow-[0_0_40px_-8px_rgba(107,63,31,0.3)]">
             <BookOpen className="text-primary" size={32} />
           </PipelineNode>
         </div>
