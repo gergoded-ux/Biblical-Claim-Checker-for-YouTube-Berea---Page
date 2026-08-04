@@ -106,7 +106,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted font-medium pt-1">
               <span className="flex items-center gap-1.5 text-ink font-semibold">
                 <Sparkles size={14} className="text-amber-500 fill-amber-400" />
-                <span>500+ Berean listeners on early access list</span>
+                <span>🔥 Early Access Waitlist Open</span>
               </span>
               <span className="hidden sm:inline">•</span>
               <span className="text-primary font-bold bg-accent-soft px-2.5 py-0.5 rounded-full border border-line">
@@ -353,82 +353,82 @@ export default function Home() {
         </button>
       </section>
 
-      {/* 6. Testimonials / Real Results (Everyday Believers) */}
+      {/* 6. Built for Every Way You Study Online */}
       <section className="py-24 px-6 bg-surface border-y border-line">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">Trusted by Everyday Believers</h2>
-            <p className="text-muted max-w-xl mx-auto">See how everyday Christians are using Berea to verify online teaching and study Scripture with confidence.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-ink">Built for Every Way You Study Online</h2>
+            <p className="text-muted max-w-xl mx-auto">Whether you listen to long-form podcasts, watch viral short clips, or study sermons with your family, Berea keeps Scripture right by your side.</p>
           </div>
 
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {/* Review 1 */}
+            {/* Use Case 1 */}
             <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
+                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><BookOpen size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm text-ink">Daily Podcast Listener</p>
-                  <p className="text-xs text-muted">Verified User</p>
+                  <p className="font-bold text-sm text-ink">Long-Form Podcasts & Sermons</p>
+                  <p className="text-xs text-muted">Never lose track of cited verses</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"I watch a lot of long Christian podcasts while working. Berea pulls up the exact scripture references as the speaker mentions them so I don't have to pause and search manually."</p>
+              <p className="text-ink text-sm leading-relaxed">Speakers often quote multiple passages quickly. Berea automatically detects spoken citations and retrieves the full verse text in your side panel so you don't have to pause and search manually.</p>
             </div>
             
-            {/* Review 2 */}
+            {/* Use Case 2 */}
             <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
+                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><Zap size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm text-ink">Everyday Bible Reader</p>
-                  <p className="text-xs text-muted">Verified User</p>
+                  <p className="font-bold text-sm text-ink">Viral 30-Second Shorts</p>
+                  <p className="text-xs text-muted">Restore broader biblical context</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"Berea caught a misquoted verse in a viral sermon clip that I would have completely missed. It gives me real peace of mind when watching content online."</p>
+              <p className="text-ink text-sm leading-relaxed">Short-form video clips often trim out important context for engagement. Berea retrieves the surrounding scripture passages so you can see what the Bible actually teaches in context.</p>
             </div>
 
-            {/* Review 3 */}
+            {/* Use Case 3 */}
             <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
+                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><CheckCircle2 size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm text-ink">YouTube Sermon Viewer</p>
-                  <p className="text-xs text-muted">Verified User</p>
+                  <p className="font-bold text-sm text-ink">Structured Verdict Breakdown</p>
+                  <p className="text-xs text-muted">Aligned · Tension · Misquote</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"The way it highlights claims into Aligned, Tension, and Misquote saves me so much time when double-checking claims I hear online."</p>
+              <p className="text-ink text-sm leading-relaxed">Berea categorizes theological statements into clear verdicts backed by neutral WEB & KJV scripture evidence, giving you immediate clarity on speaker claims.</p>
               <div className="mt-4 p-2.5 bg-accent-soft/40 rounded border border-line flex items-center gap-2">
                 <span className="text-[11px] font-bold text-primary">Instant Scripture Verification</span>
               </div>
             </div>
 
-            {/* Review 4 */}
+            {/* Scripture Anchor */}
             <div className="paper-card p-6 break-inside-avoid bg-[#faf8f3] border border-line rounded-xl shadow-2xs">
               <p className="text-ink text-sm leading-relaxed italic">"Now these Jews were more noble than those in Thessalonica; they received the word with all eagerness, examining the Scriptures daily to see if these things were so."</p>
               <p className="text-xs text-muted mt-4 font-bold tracking-widest uppercase">— Acts 17:11</p>
             </div>
 
-            {/* Review 5 */}
+            {/* Use Case 5 */}
             <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
+                <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><Shield size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm text-ink">College Student</p>
-                  <p className="text-xs text-muted">Verified User</p>
+                  <p className="font-bold text-sm text-ink">100% Private & Offline</p>
+                  <p className="text-xs text-muted">Browser-based BM25 engine</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"Super easy to use. I just open YouTube, click extract in the side panel, and I can see the biblical context right beside the video without leaving my tab."</p>
+              <p className="text-ink text-sm leading-relaxed">Your browsing history stays yours. Berea embeds a complete 31,102-verse Scripture index directly inside the Chrome extension, performing local searches without sending history to external servers.</p>
             </div>
 
-            {/* Review 6 */}
+            {/* Use Case 6 */}
             <div className="paper-card p-6 break-inside-avoid bg-surface border border-line rounded-xl shadow-2xs">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-accent-soft rounded-full flex items-center justify-center text-primary font-bold"><User size={20}/></div>
                 <div>
-                  <p className="font-bold text-sm text-ink">Family & Bible Study Listener</p>
-                  <p className="text-xs text-muted">Verified User</p>
+                  <p className="font-bold text-sm text-ink">Family & Group Bible Study</p>
+                  <p className="text-xs text-muted">Examine teaching together</p>
                 </div>
               </div>
-              <p className="text-ink text-sm leading-relaxed">"Our family watches teaching videos together. Having Berea side-by-side helps us discuss what was taught and verify scripture together."</p>
+              <p className="text-ink text-sm leading-relaxed">When watching teaching videos with family or Bible study groups, Berea provides instant scripture references side-by-side with YouTube, making group discussion and verification effortless.</p>
             </div>
 
           </div>

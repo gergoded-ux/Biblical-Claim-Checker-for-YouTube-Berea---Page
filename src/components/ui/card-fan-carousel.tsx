@@ -89,13 +89,13 @@ export default function CardFanCarousel({
       {/* Title Header */}
       <div className="text-center mb-12 space-y-3">
         <span className="text-xs font-bold text-primary tracking-widest uppercase bg-accent-soft px-3 py-1 rounded-full border border-line">
-          Fanned Interactive Showcase
+          Interactive Demo
         </span>
         <h2 className="text-3xl md:text-5xl font-extrabold text-ink tracking-tight">
-          Explore 18 YouTube Shorts in Fanned Arc
+          Test Real YouTube Sermons Against Scripture
         </h2>
         <p className="text-muted max-w-xl mx-auto text-sm md:text-base">
-          Hover to spread the fan, scroll or click arrows to cycle, and tap any card to launch Berea's simulated claim analysis.
+          Click any sermon or short below to see Berea's offline scripture retrieval and 3-part theological breakdown in action.
         </p>
       </div>
 
