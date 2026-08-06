@@ -81,7 +81,15 @@ export default function RootLayout({
                     "name": "Is Berea really free to use?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Berea is a credit-based freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for higher credit allowances."
+                      "text": "Yes. There is no subscription, no credits to buy, and no account to create. Berea runs on your own Google Gemini API key, which is free to generate at aistudio.google.com and whose free tier covers normal study use. Nothing is ever billed through Berea."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Why do I need my own API key?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use Google's free Gemini tier directly. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either."
                     }
                   },
                   {

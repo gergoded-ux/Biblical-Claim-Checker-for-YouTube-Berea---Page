@@ -125,10 +125,10 @@ export default function WaitlistModal({ isOpen, onClose, initialEmail = "" }: Wa
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
-                      Launch Day Special Offer
+                      Launch Day Access
                     </h4>
                     <p className="text-xs text-muted mt-0.5 leading-snug">
-                      Join today to unlock <strong className="text-ink">10 Bonus Free Weekly Credits</strong> + VIP day-one extension access.
+                      Join today for <strong className="text-ink">VIP day-one access</strong> plus the 60-second setup guide for your free Gemini key.
                     </p>
                   </div>
                 </div>

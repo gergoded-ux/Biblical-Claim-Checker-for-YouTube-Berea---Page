@@ -110,7 +110,7 @@ export default function Home() {
               </span>
               <span className="hidden sm:inline">•</span>
               <span className="text-primary font-bold bg-accent-soft px-2.5 py-0.5 rounded-full border border-line">
-                🎁 10 Bonus Credits on Launch
+                🔑 Free Forever · Bring Your Own Key
               </span>
             </div>
 
@@ -439,56 +439,57 @@ export default function Home() {
       <section id="pricing" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Simple, Transparent Access</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Pick the Setup That Fits You</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Free, With Your Own Key</h2>
+          <p className="text-muted max-w-2xl mx-auto mt-4">Berea has no subscription and no credits to buy. You connect a free Google Gemini API key — about a minute to create — and the extension does the rest.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Free Tier */}
-          <div className="paper-card p-10 flex flex-col">
-            <h3 className="text-2xl font-bold mb-2">Berea Basic</h3>
-            <p className="text-muted text-sm mb-6">Start examining Scripture immediately.</p>
-            <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted"></span></div>
-            
-            <button
-              onClick={() => setIsWaitlistOpen(true)}
-              className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8"
-            >
-              Join Basic Waitlist
-            </button>
-            
-            <ul className="space-y-4 text-sm text-ink flex-grow">
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Weekly AI processing credits</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Instant Scripture Database Search</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Automatic Transcript Extraction</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Google Sign-in sync</li>
-            </ul>
-          </div>
-
-          {/* Managed Tier */}
+          {/* BYOK — what ships today */}
           <div className="paper-card p-10 flex flex-col border-2 border-primary relative shadow-xl transform md:-translate-y-4">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-              Recommended
+              Available at Launch
             </div>
-            <h3 className="text-2xl font-bold mb-2">Berea Pro</h3>
-            <p className="text-muted text-sm mb-6">For power users and theologians.</p>
-            <div className="text-4xl font-extrabold mb-8">Freemium<span className="text-lg font-normal text-muted">/upgrade</span></div>
-            
+            <h3 className="text-2xl font-bold mb-2">Berea</h3>
+            <p className="text-muted text-sm mb-6">Everything the extension does, with your own Gemini key.</p>
+            <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted">/forever</span></div>
+
             <button
               onClick={() => setIsWaitlistOpen(true)}
               className="w-full py-4 rounded-lg font-bold bg-primary text-white hover:bg-primary-hover transition-colors mb-8 shadow-md"
             >
-              Reserve Pro Early Access
+              Get Day-One Access
             </button>
-            
+
+            <ul className="space-y-4 text-sm text-ink flex-grow">
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>No account, no card, no credits</strong></li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Runs on Google&apos;s free Gemini tier</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Offline Scripture search — WEB + KJV</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Automatic transcript extraction</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Markdown &amp; CSV report export</li>
+            </ul>
+          </div>
+
+          {/* Managed — not shipped yet */}
+          <div className="paper-card p-10 flex flex-col">
+            <h3 className="text-2xl font-bold mb-2">Berea Managed</h3>
+            <p className="text-muted text-sm mb-6">For when you&apos;d rather not touch an API key at all.</p>
+            <div className="text-4xl font-extrabold mb-8">Coming<span className="text-lg font-normal text-muted"> later</span></div>
+
+            <button
+              onClick={() => setIsWaitlistOpen(true)}
+              className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8"
+            >
+              Tell Me When It Lands
+            </button>
+
             <div className="bg-accent-soft p-3 rounded mb-6 text-xs font-bold text-center border border-line">
-              Everything in Basic, plus:
+              Everything above, plus:
             </div>
 
             <ul className="space-y-4 text-sm text-ink flex-grow">
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>Expanded monthly credit allowance</strong></li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Exportable Markdown Reports</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Advanced Theology Lenses</li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Priority Support</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>Sign in with Google — no key setup</strong></li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> We cover the model costs</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Priority support</li>
             </ul>
           </div>
         </div>
@@ -503,7 +504,8 @@ export default function Home() {
           {[
             { q: "Does Berea track my YouTube history or personal data?", a: "No. Berea is 100% private. It only activates when you open the side panel and explicitly click 'Extract'. It only reads the transcript of the video you are currently watching and does not track your general browsing history or personal data." },
             { q: "What Bible translation does Berea use for verification?", a: "Currently, the local retrieval engine defaults to the World English Bible (WEB) and King James Version (KJV). The AI strictly compares claims against the retrieved verses, minimizing denominational bias by sticking to the text itself." },
-            { q: "Is Berea really free to use?", a: "Berea is a credit-based freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for higher credit allowances." },
+            { q: "Is Berea really free to use?", a: "Yes. There is no subscription, no credits to buy, and no account to create. Berea runs on your own Google Gemini API key, which is free to generate at aistudio.google.com and whose free tier covers normal study use. Nothing is ever billed through Berea." },
+            { q: "Why do I need my own API key?", a: "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use Google's free Gemini tier directly. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either." },
             { q: "Does it work on every YouTube video?", a: "Berea works on any YouTube video that has a transcript (captions). Whether the video uses auto-generated or manual captions—which includes almost all sermons and podcasts—Berea can analyze it for theological claims." },
             { q: "How does the AI prevent hallucinations or making things up?", a: "We use a hybrid approach. First, Berea runs a traditional search algorithm (BM25) on a local Bible database to find relevant verses. The AI is then strictly constrained to compare the speaker's claim only against those specific verses, significantly reducing the chance of AI hallucination." }
           ].map((faq, i) => (

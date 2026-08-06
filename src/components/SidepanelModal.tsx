@@ -123,13 +123,13 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
               </div>
             </div>
 
-            {/* Auth Bar */}
+            {/* Model bar — BYOK: the user's own key, no account or credit balance */}
             <div className="bg-accent-soft/40 px-3 py-2 border-b border-line text-xs flex items-center justify-between text-muted">
               <div className="flex items-center gap-1.5">
-                <User size={13} className="text-primary" />
-                <span className="font-semibold text-ink">user@berea.app</span>
+                <Sparkles size={13} className="text-primary" />
+                <span className="font-semibold text-ink">Your Gemini key</span>
               </div>
-              <span className="font-bold text-primary bg-primary/10 px-2 py-0.5 rounded text-[11px]">8 credits</span>
+              <span className="font-bold text-primary bg-primary/10 px-2 py-0.5 rounded text-[11px]">gemini-3.5-flash-lite</span>
             </div>
 
             {/* Main Sidepanel Content */}
