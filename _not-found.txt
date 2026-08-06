@@ -2,7 +2,7 @@
 2:I[79520,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],""]
 9:I[68027,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"default",1]
 :HL["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/3s4k1y4c6erjx.css","style"]
-3:Td6f,
+3:T1010,
             [
               {
                 "@context": "https://schema.org",
@@ -42,7 +42,15 @@
                     "name": "Is Berea really free to use?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Berea is a credit-based freemium service. The extension is free to install and we provide free weekly credits to all users who sign in with Google. You can upgrade to Berea Pro for higher credit allowances."
+                      "text": "Yes. There is no subscription, no credits to buy, and no account to create. Berea runs on your own Google Gemini API key, which is free to generate at aistudio.google.com and whose free tier covers normal study use. Nothing is ever billed through Berea."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Why do I need my own API key?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use Google's free Gemini tier directly. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either."
                     }
                   },
                   {
@@ -64,7 +72,7 @@
                 ]
               }
             ]
-          0:{"P":null,"c":["","_not-found"],"q":"","i":false,"f":[[["",{"children":["/_not-found",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/3s4k1y4c6erjx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","$L2",null,{"id":"schema-org","type":"application/ld+json","children":"$3"}]}],"$L4"]}]]}],{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$@7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"QfFyhYZapju8aCStT2GIg"}
+          0:{"P":null,"c":["","_not-found"],"q":"","i":false,"f":[[["",{"children":["/_not-found",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/3s4k1y4c6erjx.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","$L2",null,{"id":"schema-org","type":"application/ld+json","children":"$3"}]}],"$L4"]}]]}],{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$@7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"ABWChs79tR_VGzDd7jzF3"}
 b:I[39756,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
 c:I[37457,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"default"]
 d:I[97367,["/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/1eozo9xfs-h7u.js","/Biblical-Claim-Checker-for-YouTube-Berea---Page/_next/static/chunks/14mumt5_n0xhi.js"],"OutletBoundary"]
