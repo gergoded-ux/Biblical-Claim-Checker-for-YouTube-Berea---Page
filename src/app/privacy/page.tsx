@@ -106,10 +106,6 @@ export default function PrivacyPolicy() {
                     <td className="px-4 py-3">Opens the Berea panel alongside YouTube</td>
                   </tr>
                   <tr className="border-b border-line bg-accent-soft/30">
-                    <td className="px-4 py-3 font-mono text-xs">activeTab</td>
-                    <td className="px-4 py-3">Reads the transcript from the YouTube tab you are currently viewing</td>
-                  </tr>
-                  <tr className="border-b border-line">
                     <td className="px-4 py-3 font-mono text-xs">storage</td>
                     <td className="px-4 py-3">Saves your API key and settings locally in the browser</td>
                   </tr>
@@ -125,13 +121,9 @@ export default function PrivacyPolicy() {
                     <td className="px-4 py-3 font-mono text-xs">tts</td>
                     <td className="px-4 py-3">Text-to-speech for reading verdicts aloud (accessibility)</td>
                   </tr>
-                  <tr className="border-b border-line">
+                  <tr>
                     <td className="px-4 py-3 font-mono text-xs">offscreen</td>
                     <td className="px-4 py-3">Runs the local Bible search engine in the background without a visible window</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-mono text-xs">identity</td>
-                    <td className="px-4 py-3">Reserved for future Google Sign-In (Berea Managed tier, not yet active)</td>
                   </tr>
                 </tbody>
               </table>
@@ -166,10 +158,10 @@ export default function PrivacyPolicy() {
             <p>
               Questions about this policy? Email{" "}
               <a
-                href="mailto:stan.valsaintfr@gmail.com"
+                href="mailto:ray4578ray@gmail.com"
                 className="text-primary underline hover:opacity-80"
               >
-                stan.valsaintfr@gmail.com
+                ray4578ray@gmail.com
               </a>.
             </p>
           </section>
