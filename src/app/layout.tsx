@@ -117,8 +117,13 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans min-h-screen bg-background text-foreground flex flex-col`}>
         <main className="flex-grow">{children}</main>
         <footer className="py-8 border-t border-[rgba(255,255,255,0.1)] text-center text-sm text-gray-400 mt-20">
-          <p>Berea™ — Acts 17:11. "They examined the Scriptures daily to see whether these things were so."</p>
+          <p>Berea™ — Acts 17:11. &quot;They examined the Scriptures daily to see whether these things were so.&quot;</p>
           <p className="mt-2 text-gray-500">Not affiliated with YouTube.</p>
+          <p className="mt-2">
+            <a href="/Biblical-Claim-Checker-for-YouTube-Berea---Page/privacy" className="text-gray-500 hover:text-gray-300 underline transition-colors">
+              Privacy policy
+            </a>
+          </p>
         </footer>
       </body>
     </html>
