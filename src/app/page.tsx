@@ -110,7 +110,7 @@ export default function Home() {
               </span>
               <span className="hidden sm:inline">•</span>
               <span className="text-primary font-bold bg-accent-soft px-2.5 py-0.5 rounded-full border border-line">
-                🔑 Free Forever · Bring Your Own Key
+                🔑 No subscription · Bring your own key
               </span>
             </div>
 
@@ -349,7 +349,7 @@ export default function Home() {
           Stop being a passive consumer of YouTube theology. Become an active, scripture-testing student of the Word.
         </p>
         <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-          Add to Chrome - It's Free
+          Add to Chrome
         </button>
       </section>
 
@@ -439,8 +439,8 @@ export default function Home() {
       <section id="pricing" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Simple, Transparent Access</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">Free, With Your Own Key</h2>
-          <p className="text-muted max-w-2xl mx-auto mt-4">Berea has no subscription and no credits to buy. You connect a free Google Gemini API key — about a minute to create — and the extension does the rest.</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">No Subscription, Your Own Key</h2>
+          <p className="text-muted max-w-2xl mx-auto mt-4">Berea has no subscription and no credits to buy. You connect your own Google Gemini API key — about a minute to create — and the extension does the rest.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -451,7 +451,7 @@ export default function Home() {
             </div>
             <h3 className="text-2xl font-bold mb-2">Berea</h3>
             <p className="text-muted text-sm mb-6">Everything the extension does, with your own Gemini key.</p>
-            <div className="text-4xl font-extrabold mb-8">Free<span className="text-lg font-normal text-muted">/forever</span></div>
+            <div className="text-4xl font-extrabold mb-8">No subscription<span className="text-lg font-normal text-muted"> · bring your own key</span></div>
 
             <button
               onClick={() => setIsWaitlistOpen(true)}
@@ -462,7 +462,7 @@ export default function Home() {
 
             <ul className="space-y-4 text-sm text-ink flex-grow">
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>No account, no card, no credits</strong></li>
-              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Runs on Google&apos;s free Gemini tier</li>
+              <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Runs on your own Google Gemini key</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Offline Scripture search — WEB + KJV</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Automatic transcript extraction</li>
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> Markdown &amp; CSV report export</li>
@@ -504,8 +504,8 @@ export default function Home() {
           {[
             { q: "Does Berea track my YouTube history or personal data?", a: "No. Berea is 100% private. It only activates when you open the side panel and explicitly click 'Extract'. It only reads the transcript of the video you are currently watching and does not track your general browsing history or personal data." },
             { q: "What Bible translation does Berea use for verification?", a: "Currently, the local retrieval engine defaults to the World English Bible (WEB) and King James Version (KJV). The AI strictly compares claims against the retrieved verses, minimizing denominational bias by sticking to the text itself." },
-            { q: "Is Berea really free to use?", a: "Yes. There is no subscription, no credits to buy, and no account to create. Berea runs on your own Google Gemini API key, which is free to generate at aistudio.google.com and whose free tier covers normal study use. Nothing is ever billed through Berea." },
-            { q: "Why do I need my own API key?", a: "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use Google's free Gemini tier directly. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either." },
+            { q: "What does Berea cost?", a: "Berea itself never charges you — there is no subscription, no credits to buy and no account to create. It runs on your own Google Gemini API key, which you create at aistudio.google.com in about a minute. Any usage of that API is between you and Google, under their terms and pricing." },
+            { q: "Why do I need my own API key?", a: "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use your own Google Gemini key directly, so you deal with Google on their terms and pricing rather than paying us a margin. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either." },
             { q: "Does it work on every YouTube video?", a: "Berea works on any YouTube video that has a transcript (captions). Whether the video uses auto-generated or manual captions—which includes almost all sermons and podcasts—Berea can analyze it for theological claims." },
             { q: "How does the AI prevent hallucinations or making things up?", a: "We use a hybrid approach. First, Berea runs a traditional search algorithm (BM25) on a local Bible database to find relevant verses. The AI is then strictly constrained to compare the speaker's claim only against those specific verses, significantly reducing the chance of AI hallucination." }
           ].map((faq, i) => (

@@ -78,10 +78,10 @@ export default function RootLayout({
                   },
                   {
                     "@type": "Question",
-                    "name": "Is Berea really free to use?",
+                    "name": "What does Berea cost?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Yes. There is no subscription, no credits to buy, and no account to create. Berea runs on your own Google Gemini API key, which is free to generate at aistudio.google.com and whose free tier covers normal study use. Nothing is ever billed through Berea."
+                      "text": "Berea itself never charges you — there is no subscription, no credits to buy and no account to create. It runs on your own Google Gemini API key, which you create at aistudio.google.com in about a minute. Any usage of that API is between you and Google, under their terms and pricing."
                     }
                   },
                   {
@@ -89,7 +89,7 @@ export default function RootLayout({
                     "name": "Why do I need my own API key?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use Google's free Gemini tier directly. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either."
+                      "text": "Weighing a claim against Scripture takes an AI model, and models cost money to run. Rather than charge a subscription to cover that, Berea lets you use your own Google Gemini key directly, so you deal with Google on their terms and pricing rather than paying us a margin. Paste the key into the extension's settings once and you are done — it stays in your browser, your claims go straight to Google, and Berea never sees either."
                     }
                   },
                   {
