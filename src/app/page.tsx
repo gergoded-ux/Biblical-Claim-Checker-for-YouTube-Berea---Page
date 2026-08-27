@@ -83,7 +83,7 @@ export default function Home() {
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold text-base md:text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95"
             >
               <Download size={20} />
-              <span>Add to Chrome — Free</span>
+              <span>Add to Chrome</span>
             </a>
 
             {/* Social proof & BYOK badge */}
