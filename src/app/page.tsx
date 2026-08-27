@@ -2,20 +2,19 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User, Mail, Sparkles } from "lucide-react";
+import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User } from "lucide-react";
 import { useState } from "react";
 import { BereaPipelineBeam } from "@/components/BereaPipelineBeam";
 import ShortsGallery from "@/components/ShortsGallery";
 import CardFanCarousel from "@/components/ui/card-fan-carousel";
 import SidepanelModal from "@/components/SidepanelModal";
-import WaitlistModal from "@/components/WaitlistModal";
 import { ShortData } from "@/data/shortsData";
+
+const CHROME_STORE_URL = "https://chromewebstore.google.com/detail/berea-%E2%80%94-biblical-claim-ch/eihlpohejkfgmgdoeladfemdhnmhadlp";
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [selectedShort, setSelectedShort] = useState<ShortData | null>(null);
-  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
-  const [heroEmail, setHeroEmail] = useState("");
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -45,12 +44,14 @@ export default function Home() {
             <a href="#toolkit" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Toolkit</a>
             <a href="#pricing" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Pricing</a>
             <a href="#faq" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">FAQ</a>
-            <button
-              onClick={() => setIsWaitlistOpen(true)}
+            <a
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-bold bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-hover transition-colors shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
-              Join Waitlist
-            </button>
+              Add to Chrome
+            </a>
           </div>
         </div>
       </nav>
@@ -75,49 +76,32 @@ export default function Home() {
           </motion.p>
           
           <motion.div variants={fadeIn} className="pt-6 max-w-xl mx-auto space-y-4">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setIsWaitlistOpen(true);
-              }}
-              className="flex flex-col sm:flex-row items-center gap-3 p-2 bg-surface paper-card border-line shadow-xl rounded-2xl"
+            <a
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold text-base md:text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95"
             >
-              <div className="relative flex-grow w-full">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted" size={20} />
-                <input
-                  type="email"
-                  value={heroEmail}
-                  onChange={(e) => setHeroEmail(e.target.value)}
-                  placeholder="Enter your email address..."
-                  className="w-full pl-11 pr-4 py-3 bg-transparent text-ink placeholder:text-muted/60 focus:outline-none text-sm font-medium"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white px-7 py-3.5 rounded-xl font-bold text-sm md:text-base transition-all flex items-center justify-center gap-2 shadow-md shrink-0 active:scale-95"
-              >
-                <span>Get Early Access</span>
-                <ArrowRight size={18} />
-              </button>
-            </form>
+              <Download size={20} />
+              <span>Add to Chrome — Free</span>
+            </a>
 
-            {/* Social proof & incentive badge */}
+            {/* Social proof & BYOK badge */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted font-medium pt-1">
               <span className="flex items-center gap-1.5 text-ink font-semibold">
-                <Sparkles size={14} className="text-amber-500 fill-amber-400" />
-                <span>🔥 Early Access Waitlist Open</span>
+                <CheckCircle2 size={14} className="text-aligned" />
+                <span>Available Now on Chrome Web Store</span>
               </span>
               <span className="hidden sm:inline">•</span>
               <span className="text-primary font-bold bg-accent-soft px-2.5 py-0.5 rounded-full border border-line">
-                🔑 No subscription · Bring your own key
+                No subscription · Bring your own key
               </span>
             </div>
 
             {/* Holy Spirit & Discernment Trust Banner */}
             <div className="pt-2">
               <p className="text-[11px] md:text-xs text-muted/80 max-w-md mx-auto italic border-t border-line/40 pt-3">
-                📖 Designed as a Scripture cross-referencing tool for personal study (Acts 17:11). Spiritual discernment comes from the Holy Spirit.
+                Designed as a Scripture cross-referencing tool for personal study (Acts 17:11). Spiritual discernment comes from the Holy Spirit.
               </p>
             </div>
           </motion.div>
@@ -307,7 +291,7 @@ export default function Home() {
       <section className="py-24 px-6 relative max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Under the Hood</p>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Checks Sermon Transcripts</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-ink">How Berea Checks Video Transcripts</h2>
           <p className="text-muted max-w-2xl mx-auto">From the moment you press "Extract" on any YouTube video, Berea runs a 6-step pipeline — right inside your browser side panel.</p>
         </div>
         <BereaPipelineBeam />
@@ -348,9 +332,10 @@ export default function Home() {
         <p className="text-xl text-muted max-w-2xl mx-auto mb-10">
           Stop being a passive consumer of YouTube theology. Become an active, scripture-testing student of the Word.
         </p>
-        <button className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+        <a href={CHROME_STORE_URL} target="_blank" rel="noopener noreferrer" className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 inline-flex items-center gap-2">
+          <Download size={20} />
           Add to Chrome
-        </button>
+        </a>
       </section>
 
       {/* 6. Built for Every Way You Study Online */}
@@ -447,18 +432,21 @@ export default function Home() {
           {/* BYOK — what ships today */}
           <div className="paper-card p-10 flex flex-col border-2 border-primary relative shadow-xl transform md:-translate-y-4">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-              Available at Launch
+              Available Now
             </div>
             <h3 className="text-2xl font-bold mb-2">Berea</h3>
             <p className="text-muted text-sm mb-6">Everything the extension does, with your own Gemini key.</p>
             <div className="text-4xl font-extrabold mb-8">No subscription<span className="text-lg font-normal text-muted"> · bring your own key</span></div>
 
-            <button
-              onClick={() => setIsWaitlistOpen(true)}
-              className="w-full py-4 rounded-lg font-bold bg-primary text-white hover:bg-primary-hover transition-colors mb-8 shadow-md"
+            <a
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 rounded-lg font-bold bg-primary text-white hover:bg-primary-hover transition-colors mb-8 shadow-md text-center inline-flex items-center justify-center gap-2"
             >
-              Get Day-One Access
-            </button>
+              <Download size={18} />
+              Add to Chrome
+            </a>
 
             <ul className="space-y-4 text-sm text-ink flex-grow">
               <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0" size={20}/> <strong>No account, no card, no credits</strong></li>
@@ -475,12 +463,12 @@ export default function Home() {
             <p className="text-muted text-sm mb-6">For when you&apos;d rather not touch an API key at all.</p>
             <div className="text-4xl font-extrabold mb-8">Coming<span className="text-lg font-normal text-muted"> later</span></div>
 
-            <button
-              onClick={() => setIsWaitlistOpen(true)}
-              className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8"
+            <a
+              href="mailto:ray4578ray@gmail.com?subject=Interested%20in%20Berea%20Managed"
+              className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8 text-center block"
             >
               Tell Me When It Lands
-            </button>
+            </a>
 
             <div className="bg-accent-soft p-3 rounded mb-6 text-xs font-bold text-center border border-line">
               Everything above, plus:
@@ -526,12 +514,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-      {/* Waitlist Modal */}
-      <WaitlistModal
-        isOpen={isWaitlistOpen}
-        onClose={() => setIsWaitlistOpen(false)}
-        initialEmail={heroEmail}
-      />
     </div>
   );
 }

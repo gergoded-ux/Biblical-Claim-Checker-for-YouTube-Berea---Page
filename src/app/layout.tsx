@@ -54,7 +54,8 @@ export default function RootLayout({
                   "@type": "Offer",
                   "price": "0",
                   "priceCurrency": "USD"
-                }
+                },
+                "installUrl": "https://chromewebstore.google.com/detail/berea-%E2%80%94-biblical-claim-ch/eihlpohejkfgmgdoeladfemdhnmhadlp"
               },
               {
                 "@context": "https://schema.org",
