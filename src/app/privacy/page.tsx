@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-bold mb-3">Zero data collection</h2>
             <p className="mb-3">
-              We do not collect, store, transmit, or sell any personal data or usage information.
+              We do not collect, receive, or sell any personal data or usage information. Nothing you do in Berea is transmitted to us — we run no server. Some data is stored on your own device so the extension can work; you control it and can delete it at any time. See <em>What stays on your device</em> below.
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>
@@ -57,7 +57,10 @@ export default function PrivacyPolicy() {
                 <strong>Gemini API key:</strong> Your API key is stored strictly on your device using Chrome&apos;s local storage (<code className="text-sm bg-accent-soft px-1 py-0.5 rounded">chrome.storage.local</code>). It never leaves your browser except when sent directly to Google&apos;s Gemini API to process requests.
               </li>
               <li>
-                <strong>Video transcripts:</strong> When you run an analysis, the transcript of the active YouTube video is read in your browser and sent directly to Google&apos;s Gemini API for claim verification. Transcripts are not saved or logged.
+                <strong>Video transcripts:</strong> The transcript of the active YouTube video is read in your browser and sent directly to Google&apos;s Gemini API for claim verification or to answer a question you ask. It is also saved on your own device alongside the conversation it belongs to, so a conversation you return to still understands the video without re-reading it. It is never sent to us, and never to anyone but Google&apos;s API in service of your own request.
+              </li>
+              <li>
+                <strong>Questions and answers:</strong> When you use Ask mode, the questions you type and the answers you receive are stored on your device as a conversation, together with the video&apos;s title and link. They are kept for as long as your chat-history setting says — the default is 7 days. You can set it to one day, a week, a month, ninety days, until you delete it, or <strong>don&apos;t save chats at all</strong>, and there is a <strong>Delete all chat history</strong> button beside the setting. Berea keeps at most 40 conversations and removes the oldest first.
               </li>
               <li>
                 <strong>Local preferences:</strong> Settings such as your preferred Bible translation or interface preferences are saved locally in your browser and never synced to external servers.
