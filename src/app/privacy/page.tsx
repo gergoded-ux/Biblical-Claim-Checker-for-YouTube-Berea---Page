@@ -16,7 +16,7 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <article className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold text-ink mb-2">Privacy policy</h1>
-        <p className="text-muted text-sm mb-12">Last updated: August 26, 2026</p>
+        <p className="text-muted text-sm mb-12">Last updated: September 9, 2026</p>
 
         <div className="space-y-10 text-ink leading-relaxed">
 
@@ -51,6 +51,16 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
+            <h2 className="text-xl font-bold mb-3">The Bible is on your device</h2>
+            <p>
+              Every translation Berea offers — eight of them, across six languages — is bundled inside the extension itself.
+              Looking up a verse, searching for a passage or following a cross-reference happens entirely on your own computer
+              and reaches no network at all. Nobody, ourselves included, can see what you looked up.
+              Only the reasoning step contacts Google&apos;s Gemini API, using your own key.
+            </p>
+          </section>
+
+          <section>
             <h2 className="text-xl font-bold mb-3">How data is handled locally</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>
@@ -60,7 +70,7 @@ export default function PrivacyPolicy() {
                 <strong>Video transcripts:</strong> The transcript of the active YouTube video is read in your browser and sent directly to Google&apos;s Gemini API for claim verification or to answer a question you ask. It is also saved on your own device alongside the conversation it belongs to, so a conversation you return to still understands the video without re-reading it. It is never sent to us, and never to anyone but Google&apos;s API in service of your own request.
               </li>
               <li>
-                <strong>Questions and answers:</strong> When you use Ask mode, the questions you type and the answers you receive are stored on your device as a conversation, together with the video&apos;s title and link. They are kept for as long as your chat-history setting says — the default is 7 days. You can set it to one day, a week, a month, ninety days, until you delete it, or <strong>don&apos;t save chats at all</strong>, and there is a <strong>Delete all chat history</strong> button beside the setting. Berea keeps at most 40 conversations and removes the oldest first.
+                <strong>Questions and answers:</strong> When you use Ask mode, the questions you type and the answers you receive are stored on your device as a conversation, together with the video&apos;s title and link. They are kept for as long as your chat-history setting says — the default is 7 days. You can set it to keep them only until you close the panel, or for a day, a week, a month, or ninety days, or until you delete them yourself — or <strong>don&apos;t save chats at all</strong>, and there is a <strong>Delete all chat history</strong> button beside the setting. Berea keeps at most 40 conversations and removes the oldest first.
               </li>
               <li>
                 <strong>Local preferences:</strong> Settings such as your preferred Bible translation or interface preferences are saved locally in your browser and never synced to external servers.
@@ -95,7 +105,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-xl font-bold mb-3">Permissions explained</h2>
-            <p className="mb-3">Berea requests only the Chrome permissions strictly needed for client-side functionality:</p>
+            <p className="mb-3">Berea asks for these Chrome permissions, and for access to two web addresses. Nothing here sends data to us, because there is no us to send it to — we run no server.</p>
             <div className="overflow-x-auto">
               <table className="w-full text-sm border border-line rounded-lg overflow-hidden">
                 <thead>
@@ -107,27 +117,35 @@ export default function PrivacyPolicy() {
                 <tbody>
                   <tr className="border-b border-line">
                     <td className="px-4 py-3 font-mono text-xs">sidePanel</td>
-                    <td className="px-4 py-3">Displays the Berea interface beside the active YouTube video</td>
+                    <td className="px-4 py-3">Displays the Berea panel beside the video you are watching</td>
                   </tr>
                   <tr className="border-b border-line bg-accent-soft/30">
                     <td className="px-4 py-3 font-mono text-xs">storage</td>
-                    <td className="px-4 py-3">Stores your API key and user preferences locally on your device</td>
+                    <td className="px-4 py-3">Keeps your API key, your preferences and your saved conversations on your own device</td>
                   </tr>
                   <tr className="border-b border-line">
-                    <td className="px-4 py-3 font-mono text-xs">activeTab & scripting</td>
-                    <td className="px-4 py-3">Reads the transcript of the currently open YouTube tab when you trigger an extraction</td>
+                    <td className="px-4 py-3 font-mono text-xs">scripting</td>
+                    <td className="px-4 py-3">Reads the transcript of the YouTube tab you are watching, when you ask for an analysis or an answer</td>
                   </tr>
                   <tr className="border-b border-line bg-accent-soft/30">
                     <td className="px-4 py-3 font-mono text-xs">tabs</td>
-                    <td className="px-4 py-3">Detects navigation on YouTube tabs so the side panel updates appropriately</td>
+                    <td className="px-4 py-3">Notices when you move to another YouTube video, so the panel follows you</td>
                   </tr>
                   <tr className="border-b border-line">
                     <td className="px-4 py-3 font-mono text-xs">tts</td>
-                    <td className="px-4 py-3">Provides text-to-speech for claim results when requested</td>
+                    <td className="px-4 py-3">Reads a result aloud when you ask it to</td>
+                  </tr>
+                  <tr className="border-b border-line bg-accent-soft/30">
+                    <td className="px-4 py-3 font-mono text-xs">offscreen</td>
+                    <td className="px-4 py-3">Runs the bundled Scripture search in the background of your browser</td>
+                  </tr>
+                  <tr className="border-b border-line">
+                    <td className="px-4 py-3 font-mono text-xs">youtube.com</td>
+                    <td className="px-4 py-3">Berea adds its small bar to YouTube pages and reads the transcript there. It runs on no other website.</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-mono text-xs">offscreen</td>
-                    <td className="px-4 py-3">Runs the local Scripture search engine in the background of your browser</td>
+                    <td className="px-4 py-3 font-mono text-xs">generativelanguage.googleapis.com</td>
+                    <td className="px-4 py-3">The only address Berea contacts: Google&apos;s Gemini API, called straight from your browser with your own key</td>
                   </tr>
                 </tbody>
               </table>
