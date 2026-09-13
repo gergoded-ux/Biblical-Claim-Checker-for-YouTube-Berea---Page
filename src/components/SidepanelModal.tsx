@@ -118,7 +118,7 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
                 <img src="/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png" alt="Berea" className="w-6 h-6 rounded shadow-sm" />
                 <div>
                   <h3 className="text-xs font-bold leading-tight">Biblical Claim Checker for YouTube</h3>
-                  <p className="text-[10px] text-muted">Berea™ — Acts 17:11</p>
+                  <p className="text-[10px] text-muted">Berea — Acts 17:11</p>
                 </div>
               </div>
             </div>
@@ -303,7 +303,7 @@ export default function SidepanelModal({ short, onClose }: SidepanelModalProps) 
 
             {/* Sidepanel Footer */}
             <div className="p-3 border-t border-line bg-surface text-center text-[10px] text-muted">
-              Powered by Berea™ Verification Engine · Instant Scripture Search
+              Powered by Berea Verification Engine · Instant Scripture Search
             </div>
 
           </div>

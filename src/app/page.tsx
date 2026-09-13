@@ -39,7 +39,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-ink">
             <Image src="/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png" alt="Berea Logo" width={28} height={28} className="rounded shadow-sm" />
-            <span>Berea<span className="text-primary font-normal">™</span></span>
+            <span>Berea</span>
           </div>
           <div className="flex items-center gap-6">
             <a href="#toolkit" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Toolkit</a>

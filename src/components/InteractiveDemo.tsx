@@ -103,7 +103,7 @@ export default function InteractiveDemo({ videoId, claims }: InteractiveDemoProp
           <img src="/Biblical-Claim-Checker-for-YouTube-Berea---Page/logo.png" alt="Berea" className="w-6 h-6 rounded mr-2" />
           <div className="flex flex-col">
              <span className="text-xs font-bold text-ink leading-tight">Biblical Claim Checker</span>
-             <span className="text-[10px] text-muted leading-tight">Berea™</span>
+             <span className="text-[10px] text-muted leading-tight">Berea</span>
           </div>
         </div>
 
