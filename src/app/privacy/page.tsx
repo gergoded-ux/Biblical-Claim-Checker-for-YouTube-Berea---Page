@@ -178,10 +178,10 @@ export default function PrivacyPolicy() {
             <p>
               For any questions regarding this privacy policy, contact:{" "}
               <a
-                href="mailto:ray4578ray@gmail.com"
+                href="mailto:pulsehubio@gmail.com"
                 className="text-primary underline hover:opacity-80"
               >
-                ray4578ray@gmail.com
+                pulsehubio@gmail.com
               </a>
             </p>
           </section>

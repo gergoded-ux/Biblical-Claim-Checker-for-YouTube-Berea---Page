@@ -466,7 +466,7 @@ export default function Home() {
             <div className="text-4xl font-extrabold mb-8">Coming<span className="text-lg font-normal text-muted"> later</span></div>
 
             <a
-              href="mailto:ray4578ray@gmail.com?subject=Interested%20in%20Berea%20Managed"
+              href="mailto:pulsehubio@gmail.com?subject=Interested%20in%20Berea%20Managed"
               className="w-full py-4 rounded-lg font-bold border-2 border-primary text-primary hover:bg-accent-soft transition-colors mb-8 text-center block"
             >
               Tell Me When It Lands

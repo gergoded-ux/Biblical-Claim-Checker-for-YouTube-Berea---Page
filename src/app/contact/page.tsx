@@ -16,7 +16,7 @@ export default function ContactPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const DEFAULT_WEBHOOK_B64 =
-    "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTU0ODY3NzAyMjUzNDg2OTAzMy9WMmtiMm1xbEFTLWIwYWZMWU5oeDlkQ2l4djFPRVhlemlYY0x3NkR4alotRkdCM3FtYjJhMlp2LXZhNDlNWEsyWE5zcA==";
+    "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTU0ODY3NzAyMjUzNDg2OTAzMy9WMmtiMm1xbEFTLWIwYWZMWU5oeDlkQ2l4djFPRVhlemlYY0x3NkR4alotRkdCM3FtYjJhMlp2LXZhNDlNWksyWE5zcA==";
 
   const getWebhookUrl = () => {
     if (process.env.NEXT_PUBLIC_DISCORD_WEBHOOK_URL) {
@@ -51,7 +51,7 @@ export default function ContactPage() {
     if (!webhookUrl) {
       setStatus("error");
       setErrorMessage(
-        "Discord webhook URL is not configured yet. Please email ray4578ray@gmail.com directly."
+        "Discord webhook URL is not configured yet. Please email pulsehubio@gmail.com directly."
       );
       return;
     }
@@ -118,7 +118,7 @@ export default function ContactPage() {
       console.error("Failed to send message to Discord:", err);
       setStatus("error");
       setErrorMessage(
-        "Could not send your message right now. You can also reach out by email at ray4578ray@gmail.com."
+        "Could not send your message right now. You can also reach out by email at pulsehubio@gmail.com."
       );
     } finally {
       setIsSubmitting(false);
@@ -288,8 +288,8 @@ export default function ContactPage() {
 
             <p className="text-center text-xs text-muted pt-1">
               Your message posts directly to our Discord server. You can also write to{" "}
-              <a href="mailto:ray4578ray@gmail.com" className="text-primary underline hover:opacity-80">
-                ray4578ray@gmail.com
+              <a href="mailto:pulsehubio@gmail.com" className="text-primary underline hover:opacity-80">
+                pulsehubio@gmail.com
               </a>.
             </p>
           </form>
