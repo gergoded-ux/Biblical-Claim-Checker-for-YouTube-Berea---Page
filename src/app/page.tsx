@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { BookOpen, Search, Shield, Zap, FileText, CheckCircle2, ChevronDown, Download, MessageSquare, Quote, AlertTriangle, ArrowRight, User } from "lucide-react";
 import { useState } from "react";
 import { BereaPipelineBeam } from "@/components/BereaPipelineBeam";
@@ -44,6 +45,7 @@ export default function Home() {
             <a href="#toolkit" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Toolkit</a>
             <a href="#pricing" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Pricing</a>
             <a href="#faq" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">FAQ</a>
+            <Link href="/contact" className="text-sm font-semibold hover:text-primary text-muted transition-colors hidden md:block">Contact</Link>
             <a
               href={CHROME_STORE_URL}
               target="_blank"
